@@ -200,12 +200,9 @@
                             <div href="{{ route('logout') }}"
                                              @click.prevent="$root.submit();">
                                              <span class="text-base  hover:text-[#F5AD42] text-white font-bold ml-3">Logout</span>
-
                         </div>
                         </form>
-
                     </div>
-
                     <div class="flex shrink-0 ml-2 duration-200"></div>
                 </div>
                 <div class="absolute -ml-6 left-0 top-0 bottom-0 w-3 bg-gradient-to-r from-[#F5AD42] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
