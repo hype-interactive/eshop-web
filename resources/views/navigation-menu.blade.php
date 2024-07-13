@@ -18,7 +18,7 @@
 
             </div>
 
-            <div class="flex items-center space-x-6 border-r">
+            <div class="flex items-center space-x-6 ">
                 <!-- Notification Icon -->
                 <div class="relative ">
                     <button class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none">
