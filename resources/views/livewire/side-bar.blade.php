@@ -197,11 +197,11 @@
                         <form method="POST" action="{{ route('logout') }}" x-data>
                             @csrf
 
-                            <i href="{{ route('logout') }}"
+                            <div href="{{ route('logout') }}"
                                              @click.prevent="$root.submit();">
                                              <span class="text-base  hover:text-[#F5AD42] text-white font-bold ml-3">Logout</span>
 
-                        </i>
+                        </div>
                         </form>
 
                     </div>
