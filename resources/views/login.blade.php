@@ -390,40 +390,47 @@
         <div class=" border-gray-700 pt-8">
             <div class="flex justify-between">
                 <div class="flex flex-col">
-                    <img class="h-20 w-32" src="{{ asset('loginSlider/eshop-icon.png') }}" alt="eShops Logo">
+                    <img class="h-20 w-32 md:w-36" src="{{ asset('loginSlider/eshop-icon.png') }}" alt="eShops Logo">
 
                     <p>Lorem ipsum dolor sit amet consectetur. <br> Augue quis urna tristique posuere. Ut a a cras vel v</p>
                     <div class="flex space-x-4 mt-4">
-                        <a href="#" class="text-white"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-gray-100"> <svg data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"></path>
+                          </svg>
+                        </a>
+
                         <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="text-white"><i class="fab fa-facebook"></i></a>
                     </div>
                 </div>
                 <div>
-                    <h4 class="text-lg font-bold">Shop</h4>
+                    <h4 class="text-lg  font-bold" style="color:#F5AD42" >Shop</h4>
                     <ul>
-                        <li><a href="#" class="hover:underline">Food</a></li>
-                        <li><a href="#" class="hover:underline">Beverages</a></li>
-                        <li><a href="#" class="hover:underline">Cosmetics</a></li>
-                        <li><a href="#" class="hover:underline">Home Decor</a></li>
+                        <li><a href="#" class="hover:underline text-gray-400 ">Food</a></li>
+                        <li><a href="#" class="hover:underline text-gray-400 ">Beverages</a></li>
+                        <li><a href="#" class="hover:underline text-gray-400 ">Cosmetics</a></li>
+                        <li><a href="#" class="hover:underline text-gray-400 ">Home Decor</a></li>
                     </ul>
                 </div>
+
                 <div>
-                    <h4 class="text-lg font-bold">Help & Information</h4>
+                    <h4 class="text-lg font-bold" style="color:#F5AD42" >Help & Information</h4>
+
                     <ul>
-                        <li><a href="#" class="hover:underline">How to order</a></li>
-                        <li><a href="#" class="hover:underline">Terms & Condition</a></li>
-                        <li><a href="#" class="hover:underline">Help center</a></li>
-                        <li><a href="#" class="hover:underline">Term of Use</a></li>
+                        <li><a href="#" class="hover:underline text-gray-400">How to order</a></li>
+                        <li><a href="#" class="hover:underline text-gray-400">Terms & Condition</a></li>
+                        <li><a href="#" class="hover:underline text-gray-400">Help center</a></li>
+                        <li><a href="#" class="hover:underline text-gray-400">Term of Use</a></li>
                     </ul>
                 </div>
+
                 <div>
-                    <h4 class="text-lg font-bold">My Account</h4>
+                    <h4 class="text-lg font-bold" style="color:#F5AD42" >My Account</h4>
                     <ul>
-                        <li><a href="#" class="hover:underline">My Orders</a></li>
-                        <li><a href="#" class="hover:underline">Favourites</a></li>
-                        <li><a href="#" class="hover:underline">Lorem ipsum</a></li>
-                        <li><a href="#" class="hover:underline">Lorem ipsum</a></li>
+                        <li><a href="#" class="hover:underline text-gray-400">My Orders</a></li>
+                        <li><a href="#" class="hover:underline text-gray-400">Favourites</a></li>
+                        <li><a href="#" class="hover:underline text-gray-400">Lorem ipsum</a></li>
+                        <li><a href="#" class="hover:underline text-gray-400">Lorem ipsum</a></li>
                     </ul>
                 </div>
             </div>
