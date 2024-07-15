@@ -23,7 +23,7 @@
 <livewire:side-bar />
 
 <!-- Page Content -->
-<div class=" bg-gray-100 ">
+<div class=" bg-gray-100  ">
 
 @livewire('navigation-menu')
 <div class=" bg-gray-50">

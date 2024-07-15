@@ -254,7 +254,7 @@
 
 
 
-<div class="container mx-auto w-screen " style="background-color: #FEF8EA">
+<div class="container mb-6 mx-auto w-screen " style="background-color: #FEF8EA">
     <h2 class="text-2xl font-bold mb-6 mt-6">New Arrivals</h2>
     <div class="relative">
         <button id="scrollLeft" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-blue-500 text-white p-2 rounded-full z-10">←</button>
@@ -348,43 +348,56 @@
         <button id="scrollRight" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-blue-500 text-white p-2 rounded-full  z-10">→</button>
     </div>
 </div>
-
-
-
-
-
-
-                  </div>
-
-
-
-
-        </div>
-
-
+  </div>
+     </div>
     </div>
+
+
+
 
 <!-- resources/views/components/footer.blade.php -->
+<div id="fullWidthTabContent" class="border-t border-gray-200 dark:border-gray-600">
+    <div class="p-4 bg-white flex justify-center items-center rounded-lg md:p-8 dark:bg-gray-800" id="stats" role="tabpanel" aria-labelledby="stats-tab">
+        <dl class="grid max-w-screen-xl grid-cols-1 sm:grid-cols-5 gap-8 p-4 mx-auto text-gray-900 dark:text-white sm:p-8">
 
-<div class=" flex item-center justify-center">
-    <div class="flex justify-between items-center mb-8">
-        <div class="flex-1">
-            <h2 class="text-xl font-bold">Free Delivery</h2>
-            <p>Lorem ipsum dolor sit amet consectetur. Malesuada volutpat.</p>
-        </div>
-        <div class="flex-1">
-            <h2 class="text-xl font-bold">Secure payments</h2>
-            <p>Lorem ipsum dolor sit amet consectetur. Malesuada volutpat.</p>
-        </div>
-        <div class="flex-1">
-            <h2 class="text-xl font-bold">Best Quality Material</h2>
-            <p>Lorem ipsum dolor sit amet consectetur. Malesuada volutpat.</p>
-        </div>
+            <div class="flex flex-col items-center justify-center relative p-4">
+                <div class="flex flex-col items-center text-center">
+                    <img src="{{ asset('/footer/cup.png') }}" class="w-16 h-16 mb-4">
+                    <dt class="mb-2 text-3xl font-bold">Free Delivery</dt>
+                    <dd class="text-gray-500 dark:text-gray-400">Lorem ipsum dolor sit amet consectetur Malesuada volutpat.</dd>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-center">
+                <div class="h-1/2 border-r-2 border-gray-200 dark:border-gray-600"></div>
+            </div>
+
+            <div class="flex flex-col items-center justify-center relative p-4">
+                <div class="flex flex-col items-center text-center">
+                    <img src="{{ asset('/footer/tr.png') }}" class="w-16 h-16 mb-4">
+                    <dt class="mb-2 text-3xl font-extrabold">Secure payments</dt>
+                    <dd class="text-gray-500 dark:text-gray-400">Lorem ipsum dolor sit amet consectetur Malesuada volutpat.</dd>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-center">
+                <div class="h-1/2 border-r-2 border-gray-200 dark:border-gray-600"></div>
+            </div>
+
+            <div class="flex flex-col items-center justify-center relative p-4">
+                <div class="flex flex-col items-center text-center">
+                    <img src="{{ asset('/footer/leaf.png') }}" class="w-16 h-16 mb-4">
+                    <dt class="mb-2 text-2xl font-extrabold">Best Quality Material</dt>
+                    <dd class="text-gray-500 dark:text-gray-400">Lorem ipsum dolor sit amet consectetur Malesuada volutpat.</dd>
+                </div>
+            </div>
+
+        </dl>
     </div>
-
 </div>
 
-<footer class="bg-blue-900  mt-4 text-white py-8">
+
+<footer class="bg-blue-900  mt-4 text-white py-4">
     <div class="container mx-auto px-4">
 
         <div class=" border-gray-700 pt-8">
