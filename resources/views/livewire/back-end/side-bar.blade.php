@@ -15,16 +15,9 @@
         <div class="mb-4">
             <img src="{{asset('/loginSlider/eshop-icon.png')}}" alt="Logo" class="w-full h-16 w-24 mx-auto mb-2">
 
-
-
         </div>
-
-
         <hr class="bg-white -mx-2 -mr-6">
-
         <ul class="text-center  mt-6 ml-4 ">
-
-
             <li class="relative px-4 py-2 mb-4 last:mb-0 cursor-pointer group">
                 <div wire:click="selectedMenu(0)" wire:loading.attr="disabled" class="flex items-center  justify-between text-white  hover:text-[#F5AD42] truncate transition duration-150">
                     <div class="flex items-center">

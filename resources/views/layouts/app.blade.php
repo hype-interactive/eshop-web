@@ -20,7 +20,7 @@
 
   <body class="font-sans antialiased relative">
 
-<livewire:side-bar />
+<livewire:back-end.side-bar />
 
 <!-- Page Content -->
 <div class=" bg-gray-100  ">
