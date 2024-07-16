@@ -7,9 +7,7 @@
     @vite('resources/css/app.css')
 
     <link href="{{ asset('assets/customer-guest.css') }}" rel="stylesheet" />
-
 @livewireStyles
-
 </head>
 <body class="bg-gray-100 font-sans h-screen flex justify-center items-center">
     <div class="w-full max-w-full bg-white shadow-xl flex rounded-lg overflow-hidden h-full">

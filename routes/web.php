@@ -27,11 +27,13 @@ Route::get('customer-dashboard',function (){
     return view('login');
 });
 
-// Route::get('test-page', function (){
-//     return view('livewire.front-end.welcome');
-// });
+Route::get('test-page', function (){
+    return view('product_list');
+});
 
 Route::get('customer-welcome',[\App\Livewire\FrontEnd\Welcome::class,'render'])->name('customer-welcome-page');
+Route::get('customer-product',[\App\Livewire\FrontEnd\Products::class,'render'])->name('customer-product-page');
+
 
 Route::fallback(function () {
     return response()->view('page-not-found', [], 404);

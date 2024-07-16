@@ -1,6 +1,6 @@
 <div>
 
-    <nav class="bg-white shadow">
+    <nav class="bg-white ">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
 

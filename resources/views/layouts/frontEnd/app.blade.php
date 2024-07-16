@@ -10,30 +10,15 @@
 
     <link href="{{ asset('assets/front-end.css') }}" rel="stylesheet" />
     <script src="{{ asset('assets/front-end.js') }}">  </script>
-
-
 </head>
 <body class="antialiased">
     <div id="app">
-
         <div class="bg-white">
             <!-- Navigation Bar -->
-
-
-
  <livewire:front-end.nav-bar />
-
-
-
 @yield('front-end-main')
-
-
-
 <livewire:front-end.upper-footer />
-
 <livewire:front-end.footer />
-
-
     <script src="{{ mix('js/app.js') }}"></script>
 </body>
 </html>
