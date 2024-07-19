@@ -25,7 +25,7 @@ Route::post('customer-registration',[\App\Http\Controllers\Customer\Register::cl
 
 Route::get('customer-dashboard',function (){
     return view('login');
-});
+})->name('main');
 
 Route::get('test-page', function (){
     return view('product_list');

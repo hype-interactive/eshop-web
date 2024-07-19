@@ -7,9 +7,10 @@
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     @vite('resources/css/app.css')
     <script src="//unpkg.com/alpinejs" defer></script>
-
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css"  rel="stylesheet" />
     <link href="{{ asset('assets/front-end.css') }}" rel="stylesheet" />
     <script src="{{ asset('assets/front-end.js') }}">  </script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
 </head>
 <body class="antialiased">
     <div id="app">

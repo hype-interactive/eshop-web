@@ -39,10 +39,14 @@
         </div>
 
         <div>
-            <button type="submit"
+            {{-- <button type="submit"
                 class="w-full  text-white py-4 rounded-md shadow-sm hover:bg-blue-700  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                 style="background-color: #1c70cd"> Login
-            </button>
+            </button> --}}
+            <a href="{{ route('customer-welcome-page') }}"
+                class="w-full  text-white py-4 rounded-md shadow-sm hover:bg-blue-700  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                style="background-color: #1c70cd"> Login
+            </a>
         </div>
     </form>
 @endsection
