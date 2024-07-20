@@ -8,7 +8,7 @@
             <div class="w-1/4 pr-4 mb-8 lg:mb-0 lg:h-screen lg:sticky lg:top-0 overflow-y-auto">
                 <div class="bg-white border p-6 mb-8">
                     <h2 class="text-2xl border-b  font-bold mb-4">Categories</h2>
-                    <ul class="space-y-2 overflow-y-auto h-75">
+                    <ul class="space-y-2 overflow-y-auto h-[200px] overflow-x-auto  ">
                         <li><a href="#" class="block text-blue-600 hover:text-blue-800">All</a></li>
                         <li><a href="#" class="block text-gray-700 hover:text-blue-800">Food</a></li>
                         <li><a href="#" class="block text-gray-700 hover:text-blue-800">Cosmetics</a></li>
@@ -16,13 +16,18 @@
                         <li><a href="#" class="block text-gray-700 hover:text-blue-800">Nuts</a></li>
                         <li><a href="#" class="block text-gray-700 hover:text-blue-800">Spices</a></li>
                         <li><a href="#" class="block text-gray-700 hover:text-blue-800">Handmade</a></li>
+
+                        <li><a href="#" class="block text-gray-700 hover:text-blue-800">Handmade</a></li>
+                        <li><a href="#" class="block text-gray-700 hover:text-blue-800">Handmade</a></li>
+                        <li><a href="#" class="block text-gray-700 hover:text-blue-800">Handmade</a></li>
+
                     </ul>
                 </div>
                 <div class="bg-white border p-6">
                     <h2 class="text-2xl border-b font-bold mb-4">Price</h2>
                     <div class="space-y-4">
-                        <input type="number" placeholder="Lowest price" class="w-full p-3 border-none bg-gray-50 rounded-3xl ">
-                        <input type="number" placeholder="Highest price" class="w-full p-3 border-none  bg-gray-50 rounded-3xl ">
+                        <input type="number" placeholder="Lowest price" class="w-full p-3 border border-gray-200 bg-gray-50 rounded-3xl ">
+                        <input type="number" placeholder="Highest price" class="w-full p-3 border border-gray-200  bg-gray-50 rounded-3xl ">
                         <button class="w-full  text-white py-3 rounded-lg hover:bg-blue-700" style="background-color: #1C70CD" >Apply</button>
                     </div>
                 </div>
