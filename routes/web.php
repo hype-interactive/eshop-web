@@ -27,9 +27,7 @@ Route::get('customer-dashboard',function (){
     return view('login');
 });
 
-Route::get('test-page', function (){
-    return view('product_list');
-});
+
 
 Route::get('customer-welcome',[\App\Livewire\FrontEnd\Welcome::class,'render'])->name('customer-welcome-page');
 Route::get('customer-product',[\App\Livewire\FrontEnd\Products::class,'render'])->name('customer-product-page');
@@ -43,10 +41,12 @@ Route::get('customer-subscription',[App\Livewire\FrontEnd\Subscription::class,'r
 
 
 
-
-
-
-
 Route::fallback(function () {
     return response()->view('page-not-found', [], 404);
 });
+
+
+
+// Route::get('test-page', function (){
+//     return view('product_list');
+// });
