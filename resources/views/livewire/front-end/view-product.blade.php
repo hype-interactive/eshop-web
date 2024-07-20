@@ -69,6 +69,7 @@
 
 
 
+
         <div class="container mx-auto">
             <h2 class="text-2xl font-bold mb-6 mt-6"> Related Products </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
@@ -220,5 +221,6 @@
 
             </div>
 
+        </div>
         @endsection
     </div>
