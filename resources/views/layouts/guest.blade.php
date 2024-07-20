@@ -1,44 +1,37 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    {{-- <link rel="icon" type="image/svg+xml" href="/assets/logo.png" /> --}}
-  <link rel="icon" type="image/svg+xml" href="storage/system/logo.png" />
-
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
-    <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eshop</title>
+    @vite('resources/css/app.css')
+    <link href="{{ asset('css/customer-guest.css') }}" rel="stylesheet" />
+@livewireStyles
 </head>
+<body class="bg-gray-100 font-sans h-screen flex justify-center items-center">
+    <div class="w-full max-w-full bg-white shadow-xl flex  overflow-hidden h-full">
+        <div class="w-1/2 h-full" style="background-image:  url('/images/slider.png') ; background-size: cover; background-position: center;  ">
+            <div class="h-full flex flex-col justify-end p-8 text-white bg-black bg-opacity-40">
+                <div>
+                    <h2 class="text-4xl font-bold">Please sign in to securely access your account.</h2>
+                    <p class="mt-4">Welcome back! We're thrilled to have you return to our platform. Your presence means a lot to us.</p>
+                </div>
+            </div>
+        </div>
+        <div class="w-1/2 flex flex-col p-20 ">
+            <div class="flex flex-col  mb-8">
+                <img src="{{ asset('/images/icon.png') }}" alt="Logo" class="h-12 w-24 mb-4">
+                <h1 class="text-4xl font-semibold text-gray-700 ">Sign in to access  <br> <span class="font-serif italic">your account</span></h1>
+            </div>
+            <div class="flex-grow flex  ">
 
-<body class="h-screen md:grid grid-cols-2">
-    <div class=" w-full bg-black hidden md:block">
-        <img src="https://res.cloudinary.com/do6zpq1dx/image/upload/v1697571247/KanisaOnline/xbospt43muekpfgjfdae.png" alt="" class="h-screen w-full z-10 object-cover ">
-        <div class="z-20 absolute top-5 left-5">
-            <img src="{{asset('assets/logo.png')}}" alt="" class="h-14">
+
+                @yield('guest-content')
+
+            </div
         </div>
     </div>
-    <div class="h-screen flex flex-col justify-between bg-[url('https://res.cloudinary.com/do6zpq1dx/image/upload/v1697571247/KanisaOnline/xbospt43muekpfgjfdae.png')] md:bg-none bg-cover bg-no-repeat w-full">
-        <div>
-            {{ $slot }}
-        </div>
-        <div class="w-full h-[56px] px-5 lg:px-10 space-y-5 bg-black lg:bg-transparent bg-opacity-50">
-            <div>
-                <hr class="" />
-            </div>
-            <div>
-                <span class="text-white md:text-description text-sm">2024 © eshop Online</span>
-            </div>
-        </div>
-    </div>
+    @livewireScripts
+    @vite('resources/js/app.js')
 </body>
-
 </html>

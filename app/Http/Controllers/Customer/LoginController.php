@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Hash;
 class LoginController extends Controller
 {
     function index(){
-        return view('frontEnd.login');
+        return view('sections.login');
     }
 
 
