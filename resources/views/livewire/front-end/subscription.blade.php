@@ -2,7 +2,7 @@
     @extends('layouts.frontEnd.app')
     @section('front-end-main')
 
-    <section class="relative bg-cover bg-top h-[100px]" style="background-image: url('/subscription/subscription.png');">
+    <section class="relative bg-cover bg-top " style="background-image: url('/subscription/subscription.png');">
         <div class="absolute inset-0 bg-black opacity-50"></div>
         <div class="relative z-10 flex items-center justify-center h-full text-center text-white">
             <div class=" ">
