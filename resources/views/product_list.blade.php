@@ -90,6 +90,322 @@
 
 
 
+            <div class="max-w-7xl mx-auto bg-white p-6 rounded-lg">
+                <h2 class="text-2xl font-bold mb-6">My Cart</h2>
+                <div class="flex flex-col lg:flex-row">
+                    <div class="flex-grow">
+                        <!-- Cart Items -->
+                        <div class="mb-4 flex items-center border-b pb-4">
+                            <img src="path/to/spice-image.jpg" alt="Spice" class="w-24 h-24 object-cover mr-4">
+                            <div class="flex-grow">
+                                <h3 class="text-lg font-semibold">Spice</h3>
+                                <p class="text-gray-600">Unit - 45g</p>
+                            </div>
+                            <div class="flex items-center">
+                                <button class="text-red-500 hover:text-red-700 mr-4">Remove</button>
+                                <div class="flex items-center border px-2 py-1">
+                                    <button class="text-gray-600">-</button>
+                                    <input type="text" value="02" class="w-12 text-center mx-2">
+                                    <button class="text-gray-600">+</button>
+                                </div>
+                            </div>
+                            <p class="w-24 text-right font-semibold">Tsh 23,000</p>
+                        </div>
+                        <!-- Repeat for other cart items -->
+                        <div class="mb-4 flex items-center border-b pb-4">
+                            <img src="path/to/mixed-nuts-image.jpg" alt="Mixed Nuts" class="w-24 h-24 object-cover mr-4">
+                            <div class="flex-grow">
+                                <h3 class="text-lg font-semibold">Mixed Nuts</h3>
+                                <p class="text-gray-600">Unit - 500mg</p>
+                            </div>
+                            <div class="flex items-center">
+                                <button class="text-red-500 hover:text-red-700 mr-4">Remove</button>
+                                <div class="flex items-center border px-2 py-1">
+                                    <button class="text-gray-600">-</button>
+                                    <input type="text" value="01" class="w-12 text-center mx-2">
+                                    <button class="text-gray-600">+</button>
+                                </div>
+                            </div>
+                            <p class="w-24 text-right font-semibold">Tsh 23,000</p>
+                        </div>
+                        <div class="mb-4 flex items-center border-b pb-4">
+                            <img src="path/to/tote-bag-image.jpg" alt="Tote Bag" class="w-24 h-24 object-cover mr-4">
+                            <div class="flex-grow">
+                                <h3 class="text-lg font-semibold">Tote Bag</h3>
+                                <p class="text-gray-600">Unit - 12</p>
+                            </div>
+                            <div class="flex items-center">
+                                <button class="text-red-500 hover:text-red-700 mr-4">Remove</button>
+                                <div class="flex items-center border px-2 py-1">
+                                    <button class="text-gray-600">-</button>
+                                    <input type="text" value="04" class="w-12 text-center mx-2">
+                                    <button class="text-gray-600">+</button>
+                                </div>
+                            </div>
+                            <p class="w-24 text-right font-semibold">Tsh 12,000</p>
+                        </div>
+                    </div>
+
+
+
+
+                    <!-- Order Summary -->
+                    <div class="w-full lg:w-1/3 lg:ml-6 mt-6 lg:mt-0">
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h3 class="text-lg font-bold mb-4">Order Summary</h3>
+                            <div class="mb-4">
+                                <label for="voucher" class="block text-gray-700 mb-2">Discount Voucher</label>
+                                <input type="text" id="voucher" class="w-full border px-3 py-2" placeholder="Enter voucher code">
+                                <button class="mt-2 w-full bg-blue-600 text-white py-2 rounded-lg">Apply</button>
+                            </div>
+                            <div class="flex justify-between mb-2">
+                                <p>Sub Total</p>
+                                <p>Tsh 45,000</p>
+                            </div>
+                            <div class="flex justify-between mb-4">
+                                <p>Discount (10%)</p>
+                                <p>Tsh 0</p>
+                            </div>
+                            <div class="flex justify-between text-xl font-semibold mb-4">
+                                <p>Grand Total</p>
+                                <p>Tsh 45,000</p>
+                            </div>
+                            <button class="w-full bg-blue-600 text-white py-2 rounded-lg">Checkout Now</button>
+                        </div>
+                        <div class="mt-6 text-center">
+                            <p class="text-gray-700 mb-2">Supported Payment Method</p>
+                            <img src="path/to/payment-method-logo.jpg" alt="Payment Method" class="mx-auto w-24">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="max-w-7xl mx-auto bg-white p-6 rounded-lg">
+                <h2 class="text-2xl font-bold mb-6">My Cart</h2>
+                <div class="flex flex-col lg:flex-row">
+                    <div class="flex-grow">
+                        <!-- Customer Information and Payment Method -->
+                        <div class="mb-6">
+                            <div class="flex items-center mb-4">
+                                <div class="flex items-center">
+                                    <div class="w-6 h-6 bg-yellow-400 rounded-full mr-2"></div>
+                                    <span class="font-semibold">Customer Information</span>
+                                </div>
+                                <div class="flex items-center ml-6">
+                                    <div class="w-6 h-6 bg-gray-400 rounded-full mr-2"></div>
+                                    <span class="text-gray-500">Payment Details</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold mb-4">Check Out Your Items</h3>
+                                <p class="text-gray-600 mb-4">For a better experience, check your item and choose your shipping before ordering.</p>
+                                <form class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                                    <div>
+                                        <label for="first_name" class="block text-gray-700 mb-2">First Name</label>
+                                        <input type="text" id="first_name" class="w-full border px-3 py-2" placeholder="John">
+                                    </div>
+                                    <div>
+                                        <label for="last_name" class="block text-gray-700 mb-2">Last Name</label>
+                                        <input type="text" id="last_name" class="w-full border px-3 py-2" placeholder="Juma">
+                                    </div>
+                                    <div>
+                                        <label for="phone_number" class="block text-gray-700 mb-2">Phone Number</label>
+                                        <input type="text" id="phone_number" class="w-full border px-3 py-2" placeholder="+255">
+                                    </div>
+                                    <div>
+                                        <label for="email" class="block text-gray-700 mb-2">Email</label>
+                                        <input type="email" id="email" class="w-full border px-3 py-2" placeholder="Enter email address">
+                                    </div>
+                                    <div class="col-span-1 lg:col-span-2">
+                                        <label for="address" class="block text-gray-700 mb-2">Delivery Address</label>
+                                        <input type="text" id="address" class="w-full border px-3 py-2" placeholder="Lorem ipsum dolor sit amet consectetur. Viverra amet in">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="mt-6">
+                                <h3 class="text-lg font-semibold mb-4">Payment Method</h3>
+                                <p class="text-gray-600 mb-4">Select the bank for payment of your item</p>
+                                <div class="flex items-center mb-4">
+                                    <input type="radio" id="bank_1" name="payment_method" class="mr-2">
+                                    <label for="bank_1" class="flex items-center w-full border px-3 py-2">
+                                        <img src="path/to/bank-logo.jpg" alt="Bank Logo" class="w-6 h-6 mr-2">
+                                        <span class="flex-grow">Available to transfer all banks</span>
+                                    </label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="radio" id="bank_2" name="payment_method" class="mr-2">
+                                    <label for="bank_2" class="flex items-center w-full border px-3 py-2">
+                                        <span class="flex-grow">Pay On Delivery</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Order Summary -->
+                    <div class="w-full lg:w-1/3 lg:ml-6 mt-6 lg:mt-0">
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h3 class="text-lg font-bold mb-4">Order Summary</h3>
+                            <div class="mb-4">
+                                <label for="voucher" class="block text-gray-700 mb-2">Discount Voucher</label>
+                                <input type="text" id="voucher" class="w-full border px-3 py-2" placeholder="Enter voucher code">
+                                <button class="mt-2 w-full bg-blue-600 text-white py-2 rounded-lg">Apply</button>
+                            </div>
+                            <div class="flex justify-between mb-2">
+                                <p>Sub Total</p>
+                                <p>Tsh 45,000</p>
+                            </div>
+                            <div class="flex justify-between mb-4">
+                                <p>Discount (10%)</p>
+                                <p>Tsh 0</p>
+                            </div>
+                            <div class="flex justify-between text-xl font-semibold mb-4">
+                                <p>Grand Total</p>
+                                <p>Tsh 45,000</p>
+                            </div>
+                            <button class="w-full bg-blue-600 text-white py-2 rounded-lg">Checkout Now</button>
+                        </div>
+                        <div class="mt-6 text-center">
+                            <p class="text-gray-700 mb-2">Supported Payment Method</p>
+                            <img src="path/to/payment-method-logo.jpg" alt="Payment Method" class="mx-auto w-24">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="container mx-auto flex space-x-8">
+                <!-- Sidebar -->
+                <div class="w-1/4 bg-white rounded-lg shadow p-4">
+                    <div class="flex flex-col items-center">
+                        <img class="w-24 h-24 rounded-full" src="path/to/profile-picture.jpg" alt="Profile Picture">
+                        <h2 class="mt-4 text-lg font-bold">John Miller</h2>
+                        <p class="text-gray-600">+255 763 678 910</p>
+                        <button class="mt-4 w-full text-left bg-blue-100 text-blue-700 py-2 px-4 rounded-md">
+                            Edit Account
+                        </button>
+                        <button class="mt-2 w-full text-left text-gray-700 py-2 px-4 rounded-md">
+                            Orders
+                        </button>
+                    </div>
+                </div>
+                <!-- Edit Account Form -->
+                <div class="w-3/4 bg-white rounded-lg shadow p-8">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-xl font-bold">Edit Account</h2>
+                        <button class="text-gray-500 hover:text-gray-700">
+                            <i class="fas fa-edit"></i> Edit
+                        </button>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <img class="w-24 h-24 rounded-full mb-4" src="path/to/profile-picture.jpg" alt="Profile Picture">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">Upload Photo (Max 1 MB)</label>
+                        <input type="file" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"/>
+                    </div>
+                    <div class="mt-6 space-y-4">
+                        <div class="flex space-x-4">
+                            <div class="w-1/2">
+                                <label class="block text-sm font-medium text-gray-700" for="name">Name</label>
+                                <input type="text" id="name" value="John Miller Pharmacy" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+                            </div>
+                            <div class="w-1/2">
+                                <label class="block text-sm font-medium text-gray-700" for="phone">Phone Number</label>
+                                <input type="text" id="phone" value="+255 763 123 456" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+                            </div>
+                        </div>
+                        <div class="flex space-x-4">
+                            <div class="w-1/2">
+                                <label class="block text-sm font-medium text-gray-700" for="email">Email</label>
+                                <input type="email" id="email" value="john@gmail.com" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+                            </div>
+                            <div class="w-1/2">
+                                <label class="block text-sm font-medium text-gray-700" for="location">Location</label>
+                                <input type="text" id="location" value="Kijitonyama, Dar Es Salaam" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <section class="relative bg-cover bg-center h-96" style="background-image: url('path/to/your/image.jpg');">
+                <div class="absolute inset-0 bg-black opacity-50"></div>
+                <div class="relative z-10 flex items-center justify-center h-full text-center text-white">
+                    <div>
+                        <h1 class="text-4xl font-bold mb-4">Join E-Shop as a Vendor</h1>
+                        <p class="text-lg">Expand your reach and grow your business by listing your products on E-Shop. Enjoy a seamless experience with our robust platform designed to help local manufacturers succeed.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-12">
+                <div class="container mx-auto px-4">
+                    <h2 class="text-3xl font-bold text-center mb-8">Subscription Plans</h2>
+                    <div class="flex flex-wrap justify-center ">
+
+                        <!-- Basic Plan -->
+                        <div class="w-full md:w-1/3 bg-white rounded-lg shadow p-6">
+                            <h3 class="text-xl font-bold mb-4">Basic</h3>
+                            <p class="text-gray-600 mb-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                            <p class="text-4xl font-bold mb-4">Tsh 1000 <span class="text-lg font-normal">/mo</span></p>
+                            <h4 class="text-lg font-bold mb-2">What's included:</h4>
+                            <ul class="mb-6">
+                                <li class="flex items-center mb-2"><span class="text-green-500 mr-2">✔</span> List up to 50 products</li>
+                                <li class="flex items-center mb-2"><span class="text-green-500 mr-2">✔</span> Advanced Statistic</li>
+                                <li class="flex items-center mb-2"><span class="text-green-500 mr-2">✔</span> Basic support</li>
+                                <li class="flex items-center mb-2"><span class="text-green-500 mr-2">✔</span> Access to vendor dashboard</li>
+                                <li class="flex items-center mb-2 text-gray-400"><span class="mr-2">✘</span> Advanced analytics/reporting</li>
+                                <li class="flex items-center mb-2 text-gray-400"><span class="mr-2">✘</span> Featured vendor placement</li>
+                            </ul>
+                            <button class="bg-blue-500 text-white px-4 py-2 rounded-md w-full">Chose Plan</button>
+                        </div>
+
+                        <!-- Standard Plan -->
+                        <div class="w-full md:w-1/3 bg-white rounded-lg shadow p-6 border-4 border-blue-500">
+                            <h3 class="text-xl font-bold mb-4">Standard</h3>
+                            <p class="text-gray-600 mb-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                            <p class="text-4xl font-bold mb-4">Tsh 6000 <span class="text-lg font-normal">/mo</span></p>
+                            <h4 class="text-lg font-bold mb-2">What's included:</h4>
+                            <ul class="mb-6">
+                                <li class="flex items-center mb-2"><span class="text-green-500 mr-2">✔</span> List up to 200 products</li>
+                                <li class="flex items-center mb-2"><span class="text-green-500 mr-2">✔</span> Advanced Statistic</li>
+                                <li class="flex items-center mb-2"><span class="text-green-500 mr-2">✔</span> Priority support</li>
+                                <li class="flex items-center mb-2"><span class="text-green-500 mr-2">✔</span> Access to vendor dashboard</li>
+                                <li class="flex items-center mb-2 text-gray-400"><span class="mr-2">✘</span> Lorem-ipsum dolor-sit amet</li>
+                                <li class="flex items-center mb-2 text-gray-400"><span class="mr-2">✘</span> Lorem-ipsum dolor-sit amet</li>
+                            </ul>
+                            <button class="bg-blue-500 text-white px-4 py-2 rounded-md w-full">Chose Plan</button>
+                        </div>
+
+                        <!-- Premium Plan -->
+                        <div class="w-full md:w-1/3 bg-white rounded-lg shadow p-6">
+                            <h3 class="text-xl font-bold mb-4">Premium</h3>
+                            <p class="text-gray-600 mb-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                            <p class="text-4xl font-bold mb-4">Tsh 2100 <span class="text-lg font-normal">/mo</span></p>
+                            <h4 class="text-lg font-bold mb-2">What's included:</h4>
+                            <ul class="mb-6">
+                                <li class="flex items-center mb-2"><span class="text-green-500 mr-2">✔</span> Unlimited product listings</li>
+                                <li class="flex items-center mb-2"><span class="text-green-500 mr-2">✔</span> Dedicated account manager</li>
+                                <li class="flex items-center mb-2"><span class="text-green-500 mr-2">✔</span> Access to vendor dashboard</li>
+                                <li class="flex items-center mb-2"><span class="text-green-500 mr-2">✔</span> Advanced analytics/reporting</li>
+                                <li class="flex items-center mb-2"><span class="text-green-500 mr-2">✔</span> Featured vendor placement</li>
+                                <li class="flex items-center mb-2"><span class="text-green-500 mr-2">✔</span> Directory Listing</li>
+                            </ul>
+                            <button class="bg-blue-500 text-white px-4 py-2 rounded-md w-full">Chose Plan</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
 <!-- resources/views/components/product-list.blade.php -->
 <div class="container mx-auto px-4 py-8">
     <div class="flex  flex-row">
