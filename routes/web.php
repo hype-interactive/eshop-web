@@ -34,6 +34,18 @@ Route::get('test-page', function (){
 Route::get('customer-welcome',[\App\Livewire\FrontEnd\Welcome::class,'render'])->name('customer-welcome-page');
 Route::get('customer-product',[\App\Livewire\FrontEnd\Products::class,'render'])->name('customer-product-page');
 
+Route::get('view-product',[App\Livewire\FrontEnd\ViewProduct::class,'render'])->name('view-product');
+Route::get('view-cart',[App\Livewire\FrontEnd\MyCart::class,'render'])->name('view-cart');
+Route::get('payment-info',[App\Livewire\FrontEnd\Payment::class,'render'])->name('view-cart');
+
+Route::get('customer-profile',[App\Livewire\FrontEnd\Profile::class,'render'])->name('customer-profile');
+Route::get('customer-subscription',[App\Livewire\FrontEnd\Subscription::class,'render'])->name('subscription');
+
+
+
+
+
+
 
 Route::fallback(function () {
     return response()->view('page-not-found', [], 404);
