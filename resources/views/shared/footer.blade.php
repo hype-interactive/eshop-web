@@ -4,7 +4,7 @@
             <div class=" border-gray-700 pt-8">
                 <div class="flex justify-between">
                     <div class="flex flex-col">
-                        <img class="h-20 w-32 md:w-36" src="{{ asset('loginSlider/eshop-icon.png') }}" alt="eShops Logo">
+                        <img class=" mb-7  md:w-36" src="{{ asset('loginSlider/eshop-icon.png') }}" alt="eShops Logo">
                         <p>Lorem ipsum dolor sit amet consectetur. <br> Augue quis urna tristique posuere. Ut a a cras
                             vel v</p>
                         <div class="flex  mt-4 items-center p-1 ">

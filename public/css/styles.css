@@ -1,0 +1,7 @@
+.billboard-overlay{
+    position: absolute;
+    width: 1440px;
+    height: 585px;
+    background: linear-gradient(262.38deg, rgba(217, 217, 217, 0) 17.97%, #040E1F 100%);
+    mix-blend-mode: multiply;
+}

@@ -2,7 +2,7 @@
     @extends('layouts.frontEnd.app')
     @section('front-end-main')
         <div class="max-w-7xl mx-auto bg-white p-6 rounded-lg">
-            <h2 class="text-3xl font-bold mb-6">My Cart</h2>
+            <h2 class="text-3xl font-semibold mb-6">Payment</h2>
             <div class="flex flex-col lg:flex-row">
                 <div class="flex-grow">
                     <!-- Customer Information and Payment Method -->
@@ -157,39 +157,8 @@
                     </div>
                 </div>
 
-                <div class="w-full lg:w-1/3  mt-8     lg:ml-6 mt-6 lg:mt-0">
-                    <div class="border mt-10 shadow rounded-lg ">
-                        <div class=" p-6 rounded-lg">
-                            <h3 class="text-lg font-bold mb-4">Order Summary</h3>
-                            <div class="mb-4 flex gap-2">
-                                <input type="text" id="voucher"
-                                    class="bg-gray-50  border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
-                                    placeholder="Enter voucher code">
-                                <button type="button"
-                                    class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100    ">
-                                    Apply </button>
-
-                            </div>
-                            <div class="flex  justify-between mb-2">
-                                <p class="text-gray-600 text-sm">Sub Total</p>
-                                <p>Tsh 45,000</p>
-                            </div>
-                            <div class="flex text-gray-200  justify-between mb-4">
-                                <p class="text-gray-600 text-sm">Discount (10%)</p>
-                                <p class="text-green-500">Tsh 0</p>
-                            </div>
-                            <div class="flex  justify-between text-xl font-semibold mb-4">
-                                <p>Grand Total</p>
-                                <p>Tsh 45,000</p>
-                            </div>
-                            <button class="w-full text-white py-2 rounded-lg" style="background-color: #1C70CD">Checkout
-                                Now</button>
-                        </div>
-                    </div>
-                    <div class="mt-6 text-start">
-                        <p class=" mb-2 font-bold">Supported Payment Method</p>
-                        <img src="{{ asset('payment/selcome.png') }}" alt="Payment Method" class="w-16 h-10">
-                    </div>
+                <div class=" w-1/3 lg:w-1/3 lg:ml-6 mt-6 lg:mt-0">
+                    @include('components.order_summary')
                 </div>
 
             </div>

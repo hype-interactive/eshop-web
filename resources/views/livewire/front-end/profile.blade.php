@@ -2,14 +2,19 @@
     @extends('layouts.frontEnd.app')
     @section('front-end-main')
         <div class="max-w-7xl mx-auto bg-white p-6 rounded-lg">
-            <h2 class="text-2xl font-bold mb-6">My Profile</h2>
+            <h2 class="text-3xl font-semibold mb-6">My Profile</h2>
             <div class="container mx-auto flex space-x-24">
                 <!-- Sidebar -->
                 <div class="w-1/4 bg-white h-fit rounded-lg shadow p-4">
-                    <div class="flex flex-col items-center">
-                        <img class="w-24 h-24 rounded-full" src="{{ asset('profile/profile.png') }}" alt="Profile Picture">
-                        <h2 class="mt-4 text-lg font-bold">John Miller</h2>
-                        <p class="text-gray-600">+255 763 678 910</p>
+                    <div class="flex justify-start items-center">
+                        <img class=" w-14 h-14 rounded-full" src="{{ asset('profile/profile.png') }}" alt="Profile Picture">
+                        <div class="ml-5">
+                            <h2 class=" text-lg font-bold">John Miller</h2>
+                            <p class="text-gray-600">+255 763 678 910</p>
+                        </div>
+                        
+                    </div>
+                    <div class="flex flex-col">
                         <button
                             class="mt-4 w-full text-left bg-blue-50 text-blue-700 py-3 font-bold px-4 rounded-lg flex items-center justify-between">
                             Edit Account
@@ -20,7 +25,6 @@
                         </button>
 
 
-
                         <button class="mt-2 w-full text-left text-gray-700 py-2 px-4 rounded-md">
                             Orders
                         </button>
@@ -28,10 +32,10 @@
                 </div>
                 <!-- Edit Account Form -->
                 <div class="w-3/4 bg-white rounded-lg shadow p-8">
-                    <div class="flex items-center  justify-between mb-6">
-                        <h2 class="text-xl font-bold">Edit Account</h2>
+                    <div class="flex items-center   justify-between mb-6">
+                        <h2 class="text-xl font-semibold">Edit Account</h2>
 
-                        <button class=" bg-gray-200 rounded-2xl p-2 hover:text-gray-700 flex items-center">
+                        <button class=" px-4 bg-gray-200 rounded-md p-2 hover:text-gray-700 flex items-center">
                             <svg class="w-5 h-5 mr-2" fill="none" stroke-width="1.5" stroke="currentColor"
                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -43,12 +47,8 @@
 
                     </div>
                     <div class="flex ">
-                        <img class="w-24 h-24 rounded-full mb-4" src="{{ asset('profile/profile.png') }}"
-                            alt="Profile Picture">
-
-
-                        <label for="uploadFile1"
-                            class="bg-white w-[250px] mx-4 mt-6 text-gray-500  text-base rounded-lg max-w-md h-12 flex items-center justify-between cursor-pointer border border-gray-200 font-[sans-serif]">
+                        <img class="w-24 h-24 rounded-full mb-4" src="{{ asset('profile/profile.png') }}"   alt="Profile Picture">
+                        <label for="uploadFile1"   class="bg-white w-[250px] mx-4 mt-6 px-4 text-gray-500  text-base rounded-lg max-w-md h-12 flex items-center justify-between cursor-pointer border border-gray-200 font-[sans-serif]">
 
                             <span class="text-gray-200"> Upload Photo (Max 1 Mb) </span>
                             <svg class="w-5 h-5 mr-2" fill="none" stroke-width="1.5" stroke="currentColor"
