@@ -12,7 +12,7 @@
                                 class="flex flex-wrap -mb-px text-sm font-medium text-start text-gray-500 dark:text-gray-400">
                                 <li class="w-1/2">
                                     <a href="#"
-                                        class="inline-flex w-full items-center justify-start p-1 border-[#F5AD42]  border-b-2 border-transparent rounded-t-lg   group">
+                                        class="inline-flex w-full items-center justify-start p-1 border-[#F5AD42]  border-b-2  rounded-t-lg   group">
                                         <svg data-slot="icon" fill="#F5AD42" class=" w-8 h-8 text-[#F5AD42] "
                                             stroke-width="1.5" stroke="white" viewBox="0 0 24 24"
                                             xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -125,7 +125,7 @@
                             <p class="text-gray-600 mb-4">Select the bank for payment of your item</p>
                             <div class="flex items-center mb-4">
                                 <div
-                                    class="relative flex items-center w-full h-[75px] rounded-md  border-blue-600  border border-gray-300 px-3 py-2  radio-checked">
+                                    class="relative flex items-center w-full h-[75px] rounded-md  border-blue-600  border  px-3 py-2  radio-checked">
                                     <input type="radio" checked id="bank_1" name="payment_method"
                                         class="absolute  right-3 top-1/2 transform -translate-y-1/2 cursor-pointer appearance-none checked:border-blue-500 checked:ring-0 focus:outline-none">
                                     <label for="bank_1"
