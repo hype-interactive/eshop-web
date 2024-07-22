@@ -17,7 +17,7 @@ class Register extends Controller
 {
 
     function index(){
-        return view('sections.register');
+        return view('frontEnd.register');
     }
     public function register(Request $request)
     {
