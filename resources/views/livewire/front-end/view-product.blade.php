@@ -1,7 +1,7 @@
 <div>
     @extends('layouts.frontEnd.app')
     @section('front-end-main')
-        <div class=" mx-auto px-4">
+        <div class=" mx-auto px-4 ">
             <div class="max-w-full mx-auto p-5 bg-white rounded-lg">
                 <div class="flex flex-col md:flex-row">
                     <div class="w-full md:w-1/2  flex justify-center lg:justify-center  md:justify-end items-center">
@@ -36,7 +36,7 @@
             </div>
         </div>
 
-        <div class="container mx-auto">
+        <div class="container mx-auto mb-10">
             <h2 class="text-2xl font-bold mb-6 mt-6"> Related Products </h2>
             <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-4">
                 
