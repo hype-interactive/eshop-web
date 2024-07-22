@@ -16,7 +16,6 @@
                         <li><a href="#" class="block text-gray-700 hover:text-blue-800">Nuts</a></li>
                         <li><a href="#" class="block text-gray-700 hover:text-blue-800">Spices</a></li>
                         <li><a href="#" class="block text-gray-700 hover:text-blue-800">Handmade</a></li>
-
                         <li><a href="#" class="block text-gray-700 hover:text-blue-800">Handmade</a></li>
                         <li><a href="#" class="block text-gray-700 hover:text-blue-800">Handmade</a></li>
                         <li><a href="#" class="block text-gray-700 hover:text-blue-800">Handmade</a></li>
