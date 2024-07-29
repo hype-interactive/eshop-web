@@ -32,7 +32,7 @@
                 <div class=" w-1/3 lg:w-1/3 lg:ml-6 mt-6 lg:mt-0">
                     @include('components.order_summary')
                 </div>
-            </div>
+            {{-- </div> --}}
         </div>
     @endsection
 </div>

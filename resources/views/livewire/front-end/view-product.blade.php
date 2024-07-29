@@ -35,7 +35,6 @@
                 </div>
             </div>
         </div>
-
         <div class="container mx-auto mb-10">
             <h2 class="text-2xl font-bold mb-6 mt-6"> Related Products </h2>
             <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-4">
@@ -105,5 +104,5 @@
                 increaseButton.addEventListener('click', () => updateQuantity(1));
             });
         </script>
-        @endsection
-    </div>
+    @endsection
+</div>
