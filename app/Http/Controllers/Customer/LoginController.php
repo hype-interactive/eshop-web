@@ -28,13 +28,16 @@ class LoginController extends Controller
 
         // Regenerate session
         $request->session()->regenerate();
-
+        dd(auth()->user());
         // Set session timeout (e.g., 30 minutes)
         $timeout = 30 * 60; // 30 minutes in seconds
         $request->session()->put('last_activity_time', time());
         $request->session()->put('session_timeout', $timeout);
 
+
+
         return redirect()->intended('customer-dashboard'); // Redirect to intended route or dashboard
+
     }
 
     return back()->withErrors([

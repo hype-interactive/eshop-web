@@ -32,8 +32,8 @@
                 <a href="/login" class="text-blue-600 hover:text-blue-500" style="color: #F6AE42; "> Forget Password ? </a>
             </div> --}}
             <div class="text-sm text-center">
-                I dont't have account ? <a href="{{ route('customer-register') }}"
-                    class="text-blue-600 hover:text-blue-500">Register</a>
+                I dont't have account ? <button
+                    class="text-blue-600 hover:text-blue-500">Register</button>
             </div>
 
         </div>
@@ -49,4 +49,5 @@
             </a>
         </div>
     </form>
+
 @endsection

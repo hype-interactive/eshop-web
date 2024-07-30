@@ -1,5 +1,5 @@
 <div class="card2 mx-2 rounded-lg max-w-40  overflow-hidden {{ $id }}">
-    <a href="{{ route('customer-product-page') }}">
+    <a href="{{ url('customer-product',$id) }}">
         <img src="{{ $image }}" alt="{{ $name }}"
         class="w-full h-52 object-cover rounded-lg shadow ring-2 ring-gray-300">
     </a>

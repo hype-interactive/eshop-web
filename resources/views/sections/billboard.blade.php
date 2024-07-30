@@ -2,41 +2,50 @@
     <!-- Carousel wrapper -->
     <div class="relative overflow-hidden md:h-96" style="height:550px">
         <!-- Item 1 -->
+
+        @foreach ($billboard as $value)
+
+
+
         @include('components.billboard_item', [
             'image' => asset('images/coffee.jpg'),
             'subtitle' => 'UP TO 30% OFF TODAY',
-            'title' => 'Spice Nyanya',
-            'content' => 'Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.'
+            'title' => $value->name ,
+            'content' =>  $value->description
         ])
+
+        @endforeach
+
+
         <!-- Item 2 -->
-        @include('components.billboard_item', [
+        {{-- @include('components.billboard_item', [
             'image' => asset('images/honey.jpg'),
             'subtitle' => 'UP TO 10% OFF TODAY',
             'title' => 'Asali Halisi',
             'content' => 'Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.'
         ])
-        <!-- Item 3 -->
-        @include('components.billboard_item', [
+        <!-- Item 3 --> --}}
+        {{-- @include('components.billboard_item', [
             'image' => asset('images/coffee.jpg'),
             'subtitle' => 'UP TO 50% OFF TODAY',
             'title' => 'One Coffee',
             'content' => 'Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.'
-        ])
+        ]) --}}
         <!-- Item 4 -->
-        @include('components.billboard_item', [
+        {{-- @include('components.billboard_item', [
             'image' => asset('images/spice.jpg'),
             'subtitle' => 'UP TO 30% OFF TODAY',
             'title' => 'Spices',
             'content' => 'Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.'
         ])
-        <!-- Item 5 -->
-        @include('components.billboard_item', [
+        <!-- Item 5 --> --}}
+        {{-- @include('components.billboard_item', [
             'image' => asset('images/cashew.jpg'),
             'subtitle' => 'UP TO 10% OFF TODAY',
             'title' => 'Crunchy Cashew',
             'content' => 'Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.'
-        ])
-       
+        ]) --}}
+
     </div>
     <!-- Slider indicators -->
     <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">

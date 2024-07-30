@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ViewProductController;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -35,10 +38,15 @@ Route::post('customer-login-action', [\App\Http\Controllers\Customer\LoginContro
 Route::get('customer-register', [\App\Http\Controllers\Customer\Register::class, 'index'])->name('customer-register');//done
 Route::post('customer-registration', [\App\Http\Controllers\Customer\Register::class, 'register'])->name('customer-registration');
 
-Route::get('customer-welcome', [\App\Livewire\FrontEnd\Welcome::class, 'render'])->name('customer-welcome-page');//done
-Route::get('customer-product', [\App\Livewire\FrontEnd\Products::class, 'render'])->name('customer-product-page');//done
+// new changes
+Route::get('customer-welcome', [WelcomeController::class, 'index'])->name('customer-welcome-page');//done
 
-Route::get('view-product', [App\Livewire\FrontEnd\ViewProduct::class, 'render'])->name('view-product'); //done
+
+Route::get('customer-product/{id?}', [ProductController::class, 'index'])->name('customer-product-page');//done
+
+Route::get('view-product/{id}', [ViewProductController::class, 'index'])->name('view-product'); //done
+Route::post('add-to-cart',[ViewProductController::class, 'addToCart'])->name('add-toCart');
+
 Route::get('view-cart', [App\Livewire\FrontEnd\MyCart::class, 'render'])->name('view-cart'); //done
 Route::get('payment-info', [App\Livewire\FrontEnd\Payment::class, 'render'])->name('payments'); //done
 
