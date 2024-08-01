@@ -13,7 +13,7 @@ class ProductController extends Controller
       $categories= ProductCategory::get();
 
 
-        $query= Product::query();
+        $query= Product::query()->where('final_price','>=',1);
 
         if($request->id){
             $query->where('product_category_id',$request->id);

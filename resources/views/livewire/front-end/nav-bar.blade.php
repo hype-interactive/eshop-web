@@ -3,18 +3,18 @@
         <div class="max-w-7xl mx-auto  sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 <div class="flex items-center ">
-                    <a href="{{ route('home') }}">
+                    <a href="{{ route('customer-welcome-page') }}">
                         <img class="h-16 w-auto" src="{{ asset('loginSlider/icon.png') }}" alt="eShops Logo">
                     </a>
                 </div>
                 <div class="flex w-2/3">
-                    <button type="button" class="text-blue-900 bg-gray-50 h-10 rounded-2xl border-none focus:outline-none focus:ring-[#3b5998]/50 font-medium text-sm text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 me-4 p-2 ">
+                    <a href="{{ route('customer-product-page') }}" type="button" class="text-blue-900 bg-gray-50 h-10 rounded-2xl border-none focus:outline-none focus:ring-[#3b5998]/50 font-medium text-sm text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 me-4 p-2 ">
                         <svg data-slot="icon" class="w-6 h-6" fill="none" stroke-width="1.5" stroke="currentColor"
                             viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
                         </svg>
                         Menu
-                    </button>
+                    </a>
                     <form class="flex-grow flex items-center  rounded-full border border-gray-300 m-0">
                         <button id="dropdown-button" data-dropdown-toggle="dropdown"
                             class="flex-shrink-0 z-10  me-2 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center focus:ring-[#3b5998]/50 text-gray-900 bg-gray-50 border-none rounded-l-full hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white"
@@ -47,7 +47,7 @@
                                 </li>
                             </ul>
                         </div>
-    
+
                         <div class="relative flex-grow">
                             <input type="search" id="search-dropdown"
                                 class="block p-2.5 focus:ring-[#3b5998]/50 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-full border-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
@@ -60,7 +60,7 @@
                             d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"></path>
                     </svg>
                 </div>
-                
+
                 <div class="flex items-center p-4">
                     <a href="{{ route('view-cart') }}">
                         <div class="relative m-2">
@@ -71,7 +71,7 @@
                                 </path>
                             </svg>
                             <span
-                                class="absolute top-0 right-0 inline-flex items-center justify-center px-1 py-0.5 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full">3</span>
+                                class="absolute top-0 right-0 inline-flex items-center justify-center px-1 py-0.5 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full">  @if(session('user')) {{DB::table('carts')->where('customer_id',session('user')->id)->count()  }}  @endif </span>
                         </div>
                     </a>
 

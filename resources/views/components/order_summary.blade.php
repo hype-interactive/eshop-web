@@ -12,7 +12,7 @@
         </div>
         <div class="flex  justify-between mb-2">
             <p class="text-gray-600 text-sm">Sub Total</p>
-            <p>Tsh 45,000</p>
+            <p>Tsh {{ $sub_total }}</p>
         </div>
         <div class="flex text-gray-200  justify-between mb-4">
             <p class="text-gray-600 text-sm">Discount (10%)</p>
@@ -20,10 +20,23 @@
         </div>
         <div class="flex  justify-between text-lg font-semibold mb-4">
             <p>Grand Total</p>
-            <p>Tsh 45,000</p>
+            <p>Tsh {{ $sub_total }}</p>
         </div>
+
+        @if(session('paymentOrder'))
+
+        <button  class="w-full block text-center text-white py-2 mt-5 rounded-lg" style="background-color: #1C70CD">Checkout
+            Now
+        </button>
+
+        @else
+
         <a href="{{ route('payments') }}" class="w-full block text-center text-white py-2 mt-5 rounded-lg" style="background-color: #1C70CD">Checkout
-            Now</a>
+            Now
+        </a>
+        @endif
+
+
     </div>
 </div>
 <div class="mt-6 text-start">

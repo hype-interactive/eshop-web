@@ -18,6 +18,7 @@ class ViewProductController extends Controller
 
     $relatedProducts=Product::where('product_category_id',$category_id)->paginate(20);
 
+
     return view('pages.view-product',
     [
         'products'=>$products,
@@ -25,18 +26,21 @@ class ViewProductController extends Controller
     ]);
    }
 
-   function addToCart(Request $request){
-     dd($request->all());
+function addToCart(Request $request){
     // Validate the request
+   $customer_id=session('user')->id;
+   $request->merge([ 'quantity'=>(int)$request->quantity ]);
+
   $validated = $request->validate([
     'quantity' => 'required|integer|min:1',
     'product_id' => 'required|exists:products,id',
-    'customer_id' => 'required|exists:customers,id',
 ]);
 
+
+if($customer_id){
 // Check if the product is already in the cart for the given customer
 $cartItem = Cart::where('product_id', $request->product_id)
-                ->where('customer_id', $request->customer_id)
+                ->where('customer_id', $customer_id)
                 ->first();
 
 if ($cartItem) {
@@ -45,16 +49,26 @@ if ($cartItem) {
     $cartItem->save();
     session()->flash('message', 'Product quantity updated in the cart.');
 } else {
-    // If item does not exist, create a new cart entry
+    // If item does not exist, create  new
     Cart::create([
         'quantity' => $request->quantity,
         'product_id' => $request->product_id,
-        'customer_id' => $request->customer_id,
+        'customer_id' => $customer_id,
     ]);
+
     session()->flash('message', 'Product successfully added to the cart.');
 }
+session()->forget('paymentOrder');
+     return redirect()->back();
+}
+else
+{
+  return redirect()->route('customer-login');
+}
 
-        return redirect()->back();
 
-   }
+
+    }
+
+
 }

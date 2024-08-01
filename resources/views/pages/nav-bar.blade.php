@@ -47,7 +47,7 @@
                                 </li>
                             </ul>
                         </div>
-    
+
                         <div class="relative flex-grow">
                             <input type="search" id="search-dropdown"
                                 class="block p-2.5 focus:ring-[#3b5998]/50 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-full border-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
@@ -60,7 +60,7 @@
                             d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"></path>
                     </svg>
                 </div>
-                
+
                 <div class="flex items-center p-4">
                     <a href="{{ route('view-cart') }}">
                         <div class="relative m-2">
@@ -71,7 +71,7 @@
                                 </path>
                             </svg>
                             <span
-                                class="absolute top-0 right-0 inline-flex items-center justify-center px-1 py-0.5 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full">3</span>
+                                class="absolute top-0 right-0 inline-flex items-center justify-center px-1 py-0.5 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full"> @if(session('user')) {{DB::table('carts')->where('customer_id',session('user')->id)->count()  }}  @endif </span>
                         </div>
                     </a>
 

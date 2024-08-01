@@ -60,6 +60,8 @@
                     'name' => $data->name,
                     'price' => number_format($data->final_price,2),
                     'image' => 'images/honey-1.jpg',
+                    'quantity'=>1,
+
                 ])
                 @endforeach
 

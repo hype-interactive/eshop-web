@@ -13,8 +13,10 @@
                     @include('components.cart_item', [
                         'name' => $cart->name,
                         'units' => $cart->quantity.' '. $cart->unit,
-                        'price' => number_format($cart->final_price,2),
+                        'price' => number_format($cart->price,2),
                         'image' => 'loginSlider/image1.png',
+                        'quantity'=>$cart->quantity,
+                         'id'=>$cart->id
                     ])
 
                     @endforeach
@@ -37,8 +39,8 @@
                 <!-- Order Summary -->
                 <div class=" w-1/3 lg:w-1/3 lg:ml-6 mt-6 lg:mt-0">
                     @include('components.order_summary',[
-                        'sub_total'=>1,000 Tzs,
-                        
+                        'sub_total'=>number_format($total_amount) ,
+
                     ])
                 </div>
             </div>

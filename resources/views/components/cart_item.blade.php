@@ -6,6 +6,9 @@
     <div class="flex-grow">
         <h3 class=" font-semibold mb-2">{{ $name }}</h3>
         <p class="text-gray-400 mb-2">Unit : {{ $units }}</p>
+        <form method="post" action="{{ route('remove-cart-item') }}">
+            <input type="hidden" name="id" value="{{ $id }}" />
+            @csrf
         <button class="text-red-500 flex hover:text-red-700 ">
             <svg data-slot="icon" class="w-5 mr-2" fill="none" stroke-width="1.5"
                 stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
@@ -18,6 +21,7 @@
             <span> Remove </span>
 
         </button>
+        </form>
 
     </div>
     <div class="flex flex-col ">
@@ -27,7 +31,7 @@
                 class="px-4 py-1 border border-gray-300 rounded-md bg-gray-100 text-gray-600 hover:bg-gray-200 focus:outline-none focus:ring-2 shadow-md  focus:ring-black-500">-</button>
             <input  type="text" id="quantity" numeber
                 class="w-14 border-none  mx-1  bg-gray-100 text-center  text-gray-700"
-                value="00">
+                value="{{ $quantity }}">
             <button id="increase"
                 class="px-4 py-1 border border-gray-300 rounded-md bg-gray-100   text-gray-600 hover:bg-gray-200 focus:outline-none focus:ring-2 shadow-md focus:ring-black-500">+</button>
         </div>

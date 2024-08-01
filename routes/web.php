@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\Customer\LoginController;
+use App\Http\Controllers\Customer\ProfileController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ViewProductController;
 use App\Http\Controllers\WelcomeController;
@@ -47,10 +52,18 @@ Route::get('customer-product/{id?}', [ProductController::class, 'index'])->name(
 Route::get('view-product/{id}', [ViewProductController::class, 'index'])->name('view-product'); //done
 Route::post('add-to-cart',[ViewProductController::class, 'addToCart'])->name('add-toCart');
 
-Route::get('view-cart', [App\Livewire\FrontEnd\MyCart::class, 'render'])->name('view-cart'); //done
-Route::get('payment-info', [App\Livewire\FrontEnd\Payment::class, 'render'])->name('payments'); //done
+Route::get('view-cart', [CartController::class, 'index'])->name('view-cart'); //done
+Route::post('remove-cart-item',[CartController::class,'removeItem'])->name('remove-cart-item');
 
-Route::get('customer-profile', [App\Livewire\FrontEnd\Profile::class, 'render'])->name('customer-profile'); //done
+Route::get('payment-info', [PaymentController::class, 'index'])->name('payments'); //done
+Route::post('payment-order', [PaymentController::class, 'createOrder'])->name('makeOrder'); //donemakeOrder
+
+
+
+Route::get('customer-profile', [ProfileController::class, 'index'])->name('customer-profile'); //done
+Route::get('customer-order',[OrderController::class,'index'])->name('customer-order');
+Route::get('customer-logout',[LoginController::class,'logout'])->name('customer-logout');
+
 Route::get('customer-subscription', [App\Livewire\FrontEnd\Subscription::class, 'render'])->name('subscription');
 
 

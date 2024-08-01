@@ -9,8 +9,17 @@
         <h3 class="font-semibold text-sm">{{ $name }}</h3>
         <div class="flex justify-between items-end mt-2">
             <p class="text-gray-600 ">Tsh {{ $price }}</p>
-            <button onclick="{{ $id }}" class=" text-white px-2 py-2 rounded text-sm" style="background-color: #1C70CD">Add
+            <form method="post" action="{{ route('add-toCart') }}">
+                @csrf
+                <input type="hidden" value="{{ $id }}" name="product_id"/>
+                <input type="hidden" value="1" name="quantity"/>
+
+                @csrf
+                       <button  class=" text-white px-2 py-2 rounded text-sm" style="background-color: #1C70CD">Add
                 To Cart</button>
+
+                {{-- onclick="{{ $id }}" --}}
+            </form>
         </div>
     </div>
 </div>

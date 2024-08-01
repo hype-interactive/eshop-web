@@ -3,7 +3,10 @@
     @section('front-end-main')
         <div class="max-w-7xl mx-auto bg-white p-6 rounded-lg">
             <h2 class="text-3xl font-semibold mb-6">Payment</h2>
+            <form action="{{ route('makeOrder') }}" method="post">
+                @csrf
             <div class="flex flex-col lg:flex-row">
+
                 <div class="flex-grow">
                     <!-- Customer Information and Payment Method -->
                     <div class="mb-6">
@@ -43,7 +46,8 @@
                             <h3 class="text-lg font-semibold mb-4 mt-2 ">Check Out Your Items</h3>
                             <p class="text-gray-600 mb-4">For a better experience, check your item and choose your shipping
                                 before ordering.</p>
-                            <form class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+
+                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
                                 <div class="relative mb-4">
                                     <input type="text"
                                         class="peer m-0 block h-[58px] w-full rounded-md border border-gray-200 border-secondary-500 bg-transparent bg-clip-padding px-3 py-4 text-base font-normal leading-tight text-neutral-700 transition duration-200 ease-linear placeholder:text-transparent focus:border-primary focus:pb-[0.625rem] focus:pt-[1.625rem] focus:text-neutral-700 focus:outline-none peer-focus:text-primary dark:border-neutral-400 dark:text-white dark:autofill:shadow-autofill dark:focus:border-primary dark:peer-focus:text-primary [&:not(:placeholder-shown)]:pb-[0.625rem] [&:not(:placeholder-shown)]:pt-[1.625rem]"
@@ -88,11 +92,11 @@
                                 </div>
 
 
-                            </form>
+                            </div>
 
                             <div class="relative mb-4">
                                 <!-- Input Field -->
-                                <input type="email"
+                                <input type="text"
                                     class="peer block w-full h-[80px] rounded-md border border-gray-200 border-secondary-500 bg-transparent bg-clip-padding px-12 py-4 text-base font-normal leading-tight text-neutral-700 transition duration-200 ease-linear placeholder:text-transparent focus:border-primary focus:pb-[0.625rem] focus:pt-[1.625rem] focus:text-neutral-700 focus:outline-none peer-focus:text-primary dark:border-neutral-400 dark:text-white dark:autofill:shadow-autofill dark:focus:border-primary dark:peer-focus:text-primary [&:not(:placeholder-shown)]:pb-[0.625rem] [&:not(:placeholder-shown)]:pt-[1.625rem]"
                                     id="floatingInput" value="Lorem ipsum dolor sit amet consectetur. Viverra amet in" />
 
@@ -158,10 +162,13 @@
                 </div>
 
                 <div class=" w-1/3 lg:w-1/3 lg:ml-6 mt-6 lg:mt-0">
-                    @include('components.order_summary')
+                    @include('components.order_summary',[
+                      'sub_total'=>$total
+                    ])
                 </div>
 
             </div>
+        </form>
         </div>
     @endsection
 </div>
