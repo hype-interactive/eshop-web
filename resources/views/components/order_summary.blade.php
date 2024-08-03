@@ -23,7 +23,7 @@
             <p>Tsh {{ $sub_total }}</p>
         </div>
 
-        @if(session('paymentOrder'))
+        @if( !Route::is('view-cart'))
 
         <button  class="w-full block text-center text-white py-2 mt-5 rounded-lg" style="background-color: #1C70CD">Checkout
             Now

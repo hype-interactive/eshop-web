@@ -9,7 +9,8 @@
         <form method="post" action="{{ route('remove-cart-item') }}">
             <input type="hidden" name="id" value="{{ $id }}" />
             @csrf
-        <button class="text-red-500 flex hover:text-red-700 ">
+
+            <button class="text-red-500 flex hover:text-red-700 ">
             <svg data-slot="icon" class="w-5 mr-2" fill="none" stroke-width="1.5"
                 stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
                 aria-hidden="true">
@@ -26,15 +27,56 @@
     </div>
     <div class="flex flex-col ">
         <p class="text-left text-sm mb-2">Quantity </p>
+        <form action ="{{ route('change-product-quantity') }} " method="post">
+            @csrf
+            <input type="hidden" name="id" value="{{ $id }}" />
+
         <div class="flex items-center bg-gray-100 px-2 py-1 mt-2 rounded-md">
+
             <button id="decrease"
                 class="px-4 py-1 border border-gray-300 rounded-md bg-gray-100 text-gray-600 hover:bg-gray-200 focus:outline-none focus:ring-2 shadow-md  focus:ring-black-500">-</button>
-            <input  type="text" id="quantity" numeber
+            <input  name="quantity" type="text" id="quantity" numeber
                 class="w-14 border-none  mx-1  bg-gray-100 text-center  text-gray-700"
                 value="{{ $quantity }}">
             <button id="increase"
                 class="px-4 py-1 border border-gray-300 rounded-md bg-gray-100   text-gray-600 hover:bg-gray-200 focus:outline-none focus:ring-2 shadow-md focus:ring-black-500">+</button>
+
+
         </div>
+    </form>
         <p class="mt-2 font-semibold">Tsh {{ $price }}</p>
     </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const decreaseButton = document.getElementById('decrease');
+            const increaseButton = document.getElementById('increase');
+            const quantityInput = document.getElementById('quantity');
+
+            // Function to update the quantity
+            function updateQuantity(change) {
+                let currentValue = parseInt(quantityInput.value, 10);
+                if (isNaN(currentValue)) {
+                    currentValue = 0;
+                }
+                currentValue += change;
+                // Ensure the value stays within a range (e.g., 00 to 99)
+                if (currentValue < 0) {
+                    currentValue = 0;
+                } else if (currentValue > 99) {
+                    currentValue = 99;
+                }
+                // Format value with leading zeros
+                quantityInput.value = currentValue.toString().padStart(2, '0');
+            }
+
+            // Event listeners for buttons
+            decreaseButton.addEventListener('click', () => updateQuantity(-1));
+            increaseButton.addEventListener('click', () => updateQuantity(1));
+        });
+    </script>
+
+
+
 </div>

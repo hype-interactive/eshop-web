@@ -54,6 +54,7 @@ Route::post('add-to-cart',[ViewProductController::class, 'addToCart'])->name('ad
 
 Route::get('view-cart', [CartController::class, 'index'])->name('view-cart'); //done
 Route::post('remove-cart-item',[CartController::class,'removeItem'])->name('remove-cart-item');
+Route::post('change-product-quantity',[CartController::class,'changeQunantity'])->name('change-product-quantity');
 
 Route::get('payment-info', [PaymentController::class, 'index'])->name('payments'); //done
 Route::post('payment-order', [PaymentController::class, 'createOrder'])->name('makeOrder'); //donemakeOrder

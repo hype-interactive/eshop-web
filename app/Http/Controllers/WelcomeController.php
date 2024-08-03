@@ -14,7 +14,7 @@ class WelcomeController extends Controller
         $billboard=Billboard::where('visibility',true)->get();
         $products=Product::where('final_price','>=',1)->get();
         $product_category=ProductCategory::get();
-        $featured_product=Product::where('featured',true)->paginate(3);
+        $featured_product=Product::where('featured',true)->where('final_price','>=',1)->paginate(3);
         return view('pages.welcome',[
 
             'billboard'=>$billboard,

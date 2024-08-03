@@ -95,7 +95,8 @@
             </div>
 
         </div>
-        <script>
+
+       <script>
             document.addEventListener('DOMContentLoaded', () => {
                 const decreaseButton = document.getElementById('decrease');
                 const increaseButton = document.getElementById('increase');
@@ -123,5 +124,8 @@
                 increaseButton.addEventListener('click', () => updateQuantity(1));
             });
         </script>
+
+
+
         @endsection
     </div>
