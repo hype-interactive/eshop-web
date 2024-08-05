@@ -11,7 +11,7 @@ use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return redirect()->route('customer-login');
+    return redirect()->route('customer-welcome-page');
 })->name('home');
 
 
@@ -20,6 +20,7 @@ Route::get('login',function(){
     return redirect()->route('customer-login');
 
 });
+
 
 Route::get('register',function(){
     return redirect()->route('customer-register');

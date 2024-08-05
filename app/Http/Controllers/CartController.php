@@ -61,15 +61,49 @@ class CartController extends Controller
 
 
 
-        $request->quantity= (int)$request->quantity;
+        if(session('user')){
+
+
+        // $request->quantity= (int)$request->quantity;
+
         $cart = Cart::where('id', $request->id)->where('customer_id', session('user')->id)
             ->first();
-        if ($cart && $request->quantity >= 0) {
+        // if ($cart && $request->quantity >= 0) {
 
-            Cart::where('id', $request->id)->where('customer_id', session('user')->id)
-                ->update(['quantity' => $request->quantity]);
+        //     Cart::where('id', $request->id)->where('customer_id', session('user')->id)
+        //         ->update(['quantity' => $request->quantity]);
+        // }
+
+        // return back();
+
+        if ($cart ) {
+            // Determine the new quantity based on the action
+            if ($request->value == 'increases') {
+                $newQuantity = $cart->quantity + 1;
+            } elseif ($request->value == 'decreases') {
+                // Ensure quantity doesn't go below 0
+                $newQuantity = max(0, $cart->quantity - 1);
+            } else {
+                // Handle invalid action
+                return response()->json(['error' => 'Invalid action'], 400);
+            }
+
+            // Update the cart with the new quantity
+            Cart::where('id', $request->id)
+                ->where('customer_id', session('user')->id)
+                ->update(['quantity' => $newQuantity]);
+
+            // Optionally return a success response
+            return back();
+        } else {
+            // Handle case where cart item is not found
+            return response()->json(['error' => 'Cart item not found'], 404);
         }
 
-        return back();
+
+
+    }else{
+        return redirect()->route('customer-login');
+    }
     }
 }

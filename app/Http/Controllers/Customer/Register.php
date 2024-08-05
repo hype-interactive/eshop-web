@@ -43,6 +43,7 @@ class Register extends Controller
             return redirect()->route('customer-login')
                              ->with('success', 'Customer registered successfully.');
         } catch (Exception $e) {
+            dd( $e->getMessage());
             // Log the error message for debugging
             Log::error('Customer registration failed: ' . $e->getMessage());
             return redirect()->back()

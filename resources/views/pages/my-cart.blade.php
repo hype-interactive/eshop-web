@@ -13,7 +13,7 @@
                     @include('components.cart_item', [
                         'name' => $cart->name,
                         'units' => $cart->quantity.' '. $cart->unit,
-                        'price' => number_format($cart->price,2),
+                        'price' => number_format($cart->price * $cart->quantity ,2),
                         'image' => 'loginSlider/image1.png',
                         'quantity'=>$cart->quantity,
                          'id'=>$cart->id

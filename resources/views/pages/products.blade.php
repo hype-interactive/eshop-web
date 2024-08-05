@@ -21,11 +21,14 @@
                 </div>
                 <div class="bg-white border mb-8 rounded-md">
                     <h2 class=" border-b  font-semibold mb-4 px-4 py-2">Price</h2>
+                    <form method="GET" action="{{ route('customer-product-page') }}">
+                        @csrf
                     <div class="space-y-4 p-4">
-                        <input type="number" placeholder="Lowest price" class="w-full py-3 px-4 border rounded-full border-gray-200 bg-gray-100  ">
-                        <input type="number" placeholder="Highest price" class="w-full py-3 px-4 border border-gray-200  bg-gray-100 rounded-full ">
+                        <input type="number" placeholder="Lowest price" name="min_price" class="w-full py-3 px-4 border rounded-full border-gray-200 bg-gray-100  ">
+                        <input type="number" placeholder="Highest price" name="max_price" class="w-full py-3 px-4 border border-gray-200  bg-gray-100 rounded-full ">
                         <button class="w-full  text-white py-2 rounded-lg hover:bg-blue-700" style="background-color: #1C70CD" >Apply</button>
                     </div>
+                    </form>
                 </div>
             </div>
             <!-- Main Content -->
@@ -33,15 +36,28 @@
                 <div class="flex justify-between items-center mb-8">
                     <h1 class="text-2xl font-semibold">Products</h1>
                     <div class="relative">
-                        <button class=" border text-gray-700 py-2 px-4 rounded-lg bg-gray-100 flex items-center text-sm">
-                            Sort By
-                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
+                        <form id="sortForm" method="GET" action="{{ route('customer-product-page') }}">
+                            @csrf
+                            <div class="relative inline-block text-left">
+                                <select id="sortSelect" name="sortBy" class="border text-gray-700 py-2 px-4 rounded-lg bg-gray-100 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                                    <option value="" disabled selected>Sort By</option>
+                                    <option value="date">By Date</option>
+                                    <option value="price">By Price</option>
+                                </select>
+                            </div>
+                        </form>
                         <!-- Sort options would go here -->
                     </div>
                 </div>
+
+
+                <script>
+                    document.getElementById('sortSelect').addEventListener('change', function() {
+                        document.getElementById('sortForm').submit();
+                    });
+                </script>
+
+
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     {{-- @for ($i = 0; $i < 3; $i++) --}}
          @foreach ($products as $data )

@@ -8,13 +8,7 @@
                     </a>
                 </div>
                 <div class="flex w-2/3">
-                    <a href="{{ route('customer-product-page') }}" type="button" class="text-blue-900 bg-gray-50 h-10 rounded-2xl border-none focus:outline-none focus:ring-[#3b5998]/50 font-medium text-sm text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 me-4 p-2 ">
-                        <svg data-slot="icon" class="w-6 h-6" fill="none" stroke-width="1.5" stroke="currentColor"
-                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
-                        </svg>
-                        Menu
-                    </a>
+
                     <form class="flex-grow flex items-center  rounded-full border border-gray-300 m-0">
                         <button id="dropdown-button" data-dropdown-toggle="dropdown"
                             class="flex-shrink-0 z-10  me-2 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center focus:ring-[#3b5998]/50 text-gray-900 bg-gray-50 border-none rounded-l-full hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white"
@@ -27,32 +21,29 @@
                             </svg>
                         </button>
                         <div id="dropdown"
-                            class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                            class="z-50 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
                             <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdown-button">
+                                @foreach (DB::table('product_categories')->get() as $category )
+
+
                                 <li>
-                                    <button type="button"
-                                        class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Mockups</button>
+                                    <a href="{{ url('customer-product',$category->id) }}"  type="button"
+                                        class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"> {{ $category->name }}</a>
                                 </li>
-                                <li>
-                                    <button type="button"
-                                        class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Templates</button>
-                                </li>
-                                <li>
-                                    <button type="button"
-                                        class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Design</button>
-                                </li>
-                                <li>
-                                    <button type="button"
-                                        class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Logos</button>
-                                </li>
+                                @endforeach
+
                             </ul>
                         </div>
 
                         <div class="relative flex-grow">
-                            <input type="search" id="search-dropdown"
+                                <input type="search" id="search-dropdown"
                                 class="block p-2.5 focus:ring-[#3b5998]/50 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-full border-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
                                 placeholder="Search ..." required />
+                                <div id="search-results" class="absolute top-full left-0 w-full bg-white shadow-lg mt-2 rounded-lg hidden">
+                                <!-- Predictions will be inserted here -->
+                                </div>
                         </div>
+
                     </form>
                     <svg data-slot="icon" fill="none" class="w-7 h-7 m-2" stroke-width="1.5" stroke="#2759A8"
                         viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -61,7 +52,72 @@
                     </svg>
                 </div>
 
+                <script>
+                    // Debounce function to limit the rate of API calls
+                    function debounce(func, delay) {
+                        let timeout;
+                        return function(...args) {
+                            clearTimeout(timeout);
+                            timeout = setTimeout(() => func.apply(this, args), delay);
+                        };
+                    }
+
+                    // Function to fetch search predictions
+                    async function fetchSearchPredictions(query) {
+                        if (query.trim() === '') {
+                            document.getElementById('search-results').classList.add('hidden');
+                            return;
+                        }
+
+                        try {
+                            // Replace with your actual API endpoint
+                            const response = await fetch(`customer-product?query=${encodeURIComponent(query)}`);
+                            if (!response.ok) {
+                                throw new Error('Network response was not ok');
+                            }
+                            const predictions = await response.json();
+                            displayPredictions(predictions);
+                        } catch (error) {
+                            console.error('Error fetching search predictions:', error);
+                            document.getElementById('search-results').classList.add('hidden');
+                        }
+                    }
+
+                    // Function to display predictions in the results container
+                    function displayPredictions(predictions) {
+                        const resultsContainer = document.getElementById('search-results');
+                        resultsContainer.innerHTML = '';
+
+                        predictions.forEach(prediction => {
+                            const resultItem = document.createElement('a');
+                            resultItem.href = prediction.link; // URL to the product or page
+                            resultItem.textContent = prediction.text; // Text to display
+                            resultsContainer.appendChild(resultItem);
+                        });
+
+                        // Show results
+                        resultsContainer.classList.remove('hidden');
+                    }
+
+                    // Debounced version of the fetch function
+                    const debouncedFetchSearchPredictions = debounce(fetchSearchPredictions, 300);
+
+                    // Attach event listener to the search input
+                    document.getElementById('search-dropdown').addEventListener('input', function() {
+                        debouncedFetchSearchPredictions(this.value);
+                    });
+                    </script>
+
+
                 <div class="flex items-center p-4">
+                    <a href="{{ route('customer-product-page') }}" type="button" class="text-blue-900 bg-gray-50 h-10 rounded-2xl border-none focus:outline-none focus:ring-[#3b5998]/50 font-medium text-sm text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 me-4 p-2 ">
+                        <svg data-slot="icon" class="w-6 h-6" fill="none" stroke-width="1.5" stroke="currentColor"
+                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+                        </svg>
+                        Menu
+                    </a>
+
                     <a href="{{ route('view-cart') }}">
                         <div class="relative m-2">
                             <svg data-slot="icon" class="w-7 h-7" fill="none" stroke-width="1.5" stroke="#2759A8"

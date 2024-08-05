@@ -26,18 +26,6 @@
                                     </a>
                                 </li>
 
-                                <li class="w-1/2 flex ">
-                                    <a href="#"
-                                        class="inline-flex w-full  items-center justify-start p-1 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group">
-                                        <svg data-slot="icon" fill="none" class="w-8 h-8" stroke-width="1.5"
-                                            stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
-                                            aria-hidden="true">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
-                                        </svg>
-                                        Payment Details
-                                    </a>
-                                </li>
 
                             </ul>
                         </div>
@@ -47,33 +35,25 @@
                             <p class="text-gray-600 mb-4">For a better experience, check your item and choose your shipping
                                 before ordering.</p>
 
-                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                                <div class="grid grid-cols-1 lg:grid-cols-1 gap-4">
                                 <div class="relative mb-4">
                                     <input type="text"
                                         class="peer m-0 block h-[58px] w-full rounded-md border border-gray-200 border-secondary-500 bg-transparent bg-clip-padding px-3 py-4 text-base font-normal leading-tight text-neutral-700 transition duration-200 ease-linear placeholder:text-transparent focus:border-primary focus:pb-[0.625rem] focus:pt-[1.625rem] focus:text-neutral-700 focus:outline-none peer-focus:text-primary dark:border-neutral-400 dark:text-white dark:autofill:shadow-autofill dark:focus:border-primary dark:peer-focus:text-primary [&:not(:placeholder-shown)]:pb-[0.625rem] [&:not(:placeholder-shown)]:pt-[1.625rem]"
-                                        id="floatingInput" placeholder="John" />
+                                        id="floatingInput" value="{{ session('user')->full_name }}" placeholder="John" />
                                     <label for="floatingInput"
                                         class="pointer-events-none absolute left-3 top-4 text-neutral-500 transition-transform duration-200 ease-linear peer-focus:-translate-y-3 peer-focus:translate-x-[0.15rem] peer-focus:scale-[0.85] peer-focus:text-primary peer-placeholder-shown:top-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:text-neutral-500 peer-placeholder-shown:left-3 peer-[:not(:placeholder-shown)]:-translate-y-3 peer-[:not(:placeholder-shown)]:translate-x-[0.15rem] peer-[:not(:placeholder-shown)]:scale-[0.85] motion-reduce:transition-none dark:text-neutral-400 dark:peer-focus:text-primary">
-                                        First Name
+                                        Full Name
                                     </label>
                                 </div>
 
 
-                                <div class="relative mb-4">
-                                    <input type="text"
-                                        class="peer m-0 block h-[58px] w-full rounded-md border border-gray-200 border-secondary-500 bg-transparent bg-clip-padding px-3 py-4 text-base font-normal leading-tight text-neutral-700 transition duration-200 ease-linear placeholder:text-transparent focus:border-primary focus:pb-[0.625rem] focus:pt-[1.625rem] focus:text-neutral-700 focus:outline-none peer-focus:text-primary dark:border-neutral-400 dark:text-white dark:autofill:shadow-autofill dark:focus:border-primary dark:peer-focus:text-primary [&:not(:placeholder-shown)]:pb-[0.625rem] [&:not(:placeholder-shown)]:pt-[1.625rem]"
-                                        id="floatingInput" placeholder="Juma" />
-                                    <label for="floatingInput"
-                                        class="pointer-events-none absolute left-3 top-4 text-neutral-500 transition-transform duration-200 ease-linear peer-focus:-translate-y-3 peer-focus:translate-x-[0.15rem] peer-focus:scale-[0.85] peer-focus:text-primary peer-placeholder-shown:top-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:text-neutral-500 peer-placeholder-shown:left-3 peer-[:not(:placeholder-shown)]:-translate-y-3 peer-[:not(:placeholder-shown)]:translate-x-[0.15rem] peer-[:not(:placeholder-shown)]:scale-[0.85] motion-reduce:transition-none dark:text-neutral-400 dark:peer-focus:text-primary">
-                                        Last Name
-                                    </label>
-                                </div>
+
 
 
                                 <div class="relative mb-4">
                                     <input type="number"
                                         class="peer m-0 block h-[58px] w-full rounded-md border border-gray-200 border-secondary-500 bg-transparent bg-clip-padding px-3 py-4 text-base font-normal leading-tight text-neutral-700 transition duration-200 ease-linear placeholder:text-transparent focus:border-primary focus:pb-[0.625rem] focus:pt-[1.625rem] focus:text-neutral-700 focus:outline-none peer-focus:text-primary dark:border-neutral-400 dark:text-white dark:autofill:shadow-autofill dark:focus:border-primary dark:peer-focus:text-primary [&:not(:placeholder-shown)]:pb-[0.625rem] [&:not(:placeholder-shown)]:pt-[1.625rem]"
-                                        id="floatingInput" placeholder="+255" />
+                                        id="floatingInput" value="{{ session('user')->phone }}"  placeholder="+255" />
                                     <label for="floatingInput"
                                         class="pointer-events-none absolute left-3 top-4 text-neutral-500 transition-transform duration-200 ease-linear peer-focus:-translate-y-3 peer-focus:translate-x-[0.15rem] peer-focus:scale-[0.85] peer-focus:text-primary peer-placeholder-shown:top-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:text-neutral-500 peer-placeholder-shown:left-3 peer-[:not(:placeholder-shown)]:-translate-y-3 peer-[:not(:placeholder-shown)]:translate-x-[0.15rem] peer-[:not(:placeholder-shown)]:scale-[0.85] motion-reduce:transition-none dark:text-neutral-400 dark:peer-focus:text-primary">
                                         Phone Number
@@ -84,7 +64,7 @@
                                 <div class="relative mb-4">
                                     <input type="email"
                                         class="peer m-0 block h-[58px] w-full rounded-md border border-gray-200 border-secondary-500 bg-transparent bg-clip-padding px-3 py-4 text-base font-normal leading-tight text-neutral-700 transition duration-200 ease-linear placeholder:text-transparent focus:border-primary focus:pb-[0.625rem] focus:pt-[1.625rem] focus:text-neutral-700 focus:outline-none peer-focus:text-primary dark:border-neutral-400 dark:text-white dark:autofill:shadow-autofill dark:focus:border-primary dark:peer-focus:text-primary [&:not(:placeholder-shown)]:pb-[0.625rem] [&:not(:placeholder-shown)]:pt-[1.625rem]"
-                                        id="floatingInput" value="jumael@gmail.com" placeholder="Enter email address " />
+                                        id="floatingInput"  value="{{ session('user')->email }}"  placeholder="Enter email address " />
                                     <label for="floatingInput"
                                         class="pointer-events-none absolute left-3 top-4 text-neutral-500 transition-transform duration-200 ease-linear peer-focus:-translate-y-3 peer-focus:translate-x-[0.15rem] peer-focus:scale-[0.85] peer-focus:text-primary peer-placeholder-shown:top-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:text-neutral-500 peer-placeholder-shown:left-3 peer-[:not(:placeholder-shown)]:-translate-y-3 peer-[:not(:placeholder-shown)]:translate-x-[0.15rem] peer-[:not(:placeholder-shown)]:scale-[0.85] motion-reduce:transition-none dark:text-neutral-400 dark:peer-focus:text-primary">
                                         Email

@@ -28,6 +28,9 @@ class ViewProductController extends Controller
 
 function addToCart(Request $request){
     // Validate the request
+
+    if(session('user')){
+
    $customer_id=session('user')->id;
    $request->merge([ 'quantity'=>(int)$request->quantity ]);
 
@@ -67,6 +70,9 @@ else
 }
 
 
+}else{
+    return redirect()->route('customer-login');
+}
 
     }
 
