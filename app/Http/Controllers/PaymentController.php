@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Customer;
 use App\Models\Order;
 use App\Models\OrderProduct;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -18,13 +20,25 @@ class PaymentController extends Controller
 
         //validation of order
 
-        //clear of cart
+        $array=[
+            'full_name'=>$request->full_name,
+             'email'=>$request->email,
+             'location'=>$request->location,
+        ];
+
+        // update user information
+
+
 
 
         //create order form the cart
         $order_id = 'ES' . time();
         $customer_id = session('user')->id;
-        DB::transaction(function () use ($order_id, $customer_id) {
+        $payment_method=$request->payment_method;
+        DB::transaction(function () use ($order_id, $customer_id,$payment_method, $array) {
+       //clear of cart
+           Customer::where('id',session('user')->id)->update($array);
+     session()->put('user',Customer::where('id',session('user')->id)->first());
 
             $total_amount = 00;
             foreach (Cart::where('customer_id', $customer_id)->get() as $cart) {
@@ -45,6 +59,7 @@ class PaymentController extends Controller
                 'date' => now(),
                 'payment_status' => 'pending',
                 'status' => 'pending',
+                'payment_method'=>$payment_method,
 
             ]);
             //clear cart
@@ -53,7 +68,7 @@ class PaymentController extends Controller
 
         session()->put('paymentOrder',false);
         session()->forget('paymentOrder');
-        return redirect()->route('customer-profile');
+        return redirect()->route('customer-order');
     }
 
     function index()

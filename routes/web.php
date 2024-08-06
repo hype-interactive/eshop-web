@@ -65,7 +65,7 @@ Route::post('payment-order', [PaymentController::class, 'createOrder'])->name('m
 Route::get('customer-profile', [ProfileController::class, 'index'])->name('customer-profile'); //done
 Route::get('customer-order',[OrderController::class,'index'])->name('customer-order');
 Route::get('customer-logout',[LoginController::class,'logout'])->name('customer-logout');
-
+Route::post('update-customer-info',[ProfileController::class,'update'])->name('update-customer-info');
 Route::get('customer-subscription', [App\Livewire\FrontEnd\Subscription::class, 'render'])->name('subscription');
 
 

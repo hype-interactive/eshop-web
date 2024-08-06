@@ -42,6 +42,8 @@
                 <div class="w-3/4 bg-white rounded-lg shadow p-8">
 
                     @if(Route::is('customer-profile'))
+                    <form action="{{ route('update-customer-info') }}" method="post" >
+                        @csrf
                     <div class="flex items-center   justify-between mb-6">
                         <h2 class="text-xl font-semibold">Edit Account</h2>
 
@@ -76,28 +78,30 @@
                         <div class="flex space-x-4">
                             <div class="w-1/2">
                                 <label class="block text-sm font-medium text-gray-700" for="name">Name</label>
-                                <input type="text" id="name" value="{{ session('user')->full_name }}"
+                                <input type="text"  name="full_name" id="name" value="{{ session('user')->full_name }}"
                                     class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
                             </div>
                             <div class="w-1/2">
                                 <label class="block text-sm font-medium text-gray-700" for="phone">Phone Number</label>
-                                <input type="text" id="phone" value="{{ session('user')->phone }}"
+                                <input readonly type="text" id="phone" value="{{ session('user')->phone }}"
                                     class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
                             </div>
                         </div>
                         <div class="flex space-x-4">
                             <div class="w-1/2">
                                 <label class="block text-sm font-medium text-gray-700" for="email">Email</label>
-                                <input type="email" id="email" value="john@gmail.com"
+                                <input type="email" name="email" id="email" value="{{ session('user')->email }}"
                                     class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
                             </div>
                             <div class="w-1/2">
                                 <label class="block text-sm font-medium text-gray-700" for="location">Location</label>
-                                <input type="text" id="location" value="Kijitonyama, Dar Es Salaam"
+                                <input type="text"  name="location" id="location" value="{{ session('user')->location }}"
                                     class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
                             </div>
                         </div>
                     </div>
+
+                    </form>
 
                     @else
 

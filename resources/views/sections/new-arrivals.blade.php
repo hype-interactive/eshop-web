@@ -6,7 +6,7 @@
         <div class="scroll-container flex items-center gap-x-5  mx-5">
 
             @foreach ($products as $product)
-               @include('components.product_card', ['id' => $product->id, 'name' => $product->name, 'price' => $product->final_price, 'image' => 'images/honey-1.jpg'])
+               @include('components.product_card', ['id' => $product->id, 'name' => $product->name, 'price' => number_format($product->final_price,2), 'image' => 'images/honey-1.jpg'])
 
             @endforeach
             {{-- @include('components.product_card', ['id' => 2, 'name' => 'Cashew', 'price' => '10,000', 'image' => 'loginSlider/image1.png'])

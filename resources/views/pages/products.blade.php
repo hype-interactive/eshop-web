@@ -13,7 +13,7 @@
                         <li><a href="{{ route('customer-product-page') }}" class="block text-blue-600 text-sm hover:text-blue-800">All</a></li>
 
                         @foreach ($categories as $category )
-                        <li><a href="{{ url('customer-product',$category->id) }}" class="block text-blue-600 text-sm hover:text-blue-800"> {{ $category->name }}</a></li>
+                        <li><a href="{{ url('customer-product',$category->id) }}" class="block  text-blue-600 text-sm hover:text-blue-800"> {{ $category->name }}</a></li>
 
                         @endforeach
 
@@ -66,7 +66,7 @@
              @include('components.product_card', [
                 'id' => $data->id,
                 'name' => $data->name,
-                'price' => $data->final_price,
+                'price' => number_format($data->final_price,2),
                 'image' => 'images/honey-1.jpg',
             ])
          @endforeach

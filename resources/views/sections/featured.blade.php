@@ -8,7 +8,7 @@
           @include('components.product_card', [
                 'id' => $featured_product->id,
                 'name' => $featured_product->name,
-                'price' => $featured_product->final_price,
+                'price' => number_format($featured_product->final_price,2),
                 'image' => 'images/honey-1.jpg',
             ])
 

@@ -37,7 +37,7 @@
 
                                 <div class="grid grid-cols-1 lg:grid-cols-1 gap-4">
                                 <div class="relative mb-4">
-                                    <input type="text"
+                                    <input type="text" name="full_name"
                                         class="peer m-0 block h-[58px] w-full rounded-md border border-gray-200 border-secondary-500 bg-transparent bg-clip-padding px-3 py-4 text-base font-normal leading-tight text-neutral-700 transition duration-200 ease-linear placeholder:text-transparent focus:border-primary focus:pb-[0.625rem] focus:pt-[1.625rem] focus:text-neutral-700 focus:outline-none peer-focus:text-primary dark:border-neutral-400 dark:text-white dark:autofill:shadow-autofill dark:focus:border-primary dark:peer-focus:text-primary [&:not(:placeholder-shown)]:pb-[0.625rem] [&:not(:placeholder-shown)]:pt-[1.625rem]"
                                         id="floatingInput" value="{{ session('user')->full_name }}" placeholder="John" />
                                     <label for="floatingInput"
@@ -51,7 +51,7 @@
 
 
                                 <div class="relative mb-4">
-                                    <input type="number"
+                                    <input type="number" name="phone_number" readonly
                                         class="peer m-0 block h-[58px] w-full rounded-md border border-gray-200 border-secondary-500 bg-transparent bg-clip-padding px-3 py-4 text-base font-normal leading-tight text-neutral-700 transition duration-200 ease-linear placeholder:text-transparent focus:border-primary focus:pb-[0.625rem] focus:pt-[1.625rem] focus:text-neutral-700 focus:outline-none peer-focus:text-primary dark:border-neutral-400 dark:text-white dark:autofill:shadow-autofill dark:focus:border-primary dark:peer-focus:text-primary [&:not(:placeholder-shown)]:pb-[0.625rem] [&:not(:placeholder-shown)]:pt-[1.625rem]"
                                         id="floatingInput" value="{{ session('user')->phone }}"  placeholder="+255" />
                                     <label for="floatingInput"
@@ -62,7 +62,7 @@
 
 
                                 <div class="relative mb-4">
-                                    <input type="email"
+                                    <input type="email" required name="email"
                                         class="peer m-0 block h-[58px] w-full rounded-md border border-gray-200 border-secondary-500 bg-transparent bg-clip-padding px-3 py-4 text-base font-normal leading-tight text-neutral-700 transition duration-200 ease-linear placeholder:text-transparent focus:border-primary focus:pb-[0.625rem] focus:pt-[1.625rem] focus:text-neutral-700 focus:outline-none peer-focus:text-primary dark:border-neutral-400 dark:text-white dark:autofill:shadow-autofill dark:focus:border-primary dark:peer-focus:text-primary [&:not(:placeholder-shown)]:pb-[0.625rem] [&:not(:placeholder-shown)]:pt-[1.625rem]"
                                         id="floatingInput"  value="{{ session('user')->email }}"  placeholder="Enter email address " />
                                     <label for="floatingInput"
@@ -76,14 +76,14 @@
 
                             <div class="relative mb-4">
                                 <!-- Input Field -->
-                                <input type="text"
+                                <input type="text" required name="location"
                                     class="peer block w-full h-[80px] rounded-md border border-gray-200 border-secondary-500 bg-transparent bg-clip-padding px-12 py-4 text-base font-normal leading-tight text-neutral-700 transition duration-200 ease-linear placeholder:text-transparent focus:border-primary focus:pb-[0.625rem] focus:pt-[1.625rem] focus:text-neutral-700 focus:outline-none peer-focus:text-primary dark:border-neutral-400 dark:text-white dark:autofill:shadow-autofill dark:focus:border-primary dark:peer-focus:text-primary [&:not(:placeholder-shown)]:pb-[0.625rem] [&:not(:placeholder-shown)]:pt-[1.625rem]"
-                                    id="floatingInput" value="Lorem ipsum dolor sit amet consectetur. Viverra amet in" />
+                                    id="floatingInput" value="{{ session('user')->location  }}" />
 
                                 <!-- Floating Label -->
                                 <label for="floatingInput"
                                     class="pointer-events-none absolute left-12 top-4 text-neutral-500 transition-transform duration-200 ease-linear peer-focus:-translate-y-3 peer-focus:translate-x-[0.15rem] peer-focus:scale-[0.85] peer-focus:text-primary peer-placeholder-shown:top-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:text-neutral-500 peer-placeholder-shown:left-12 peer-[:not(:placeholder-shown)]:-translate-y-3 peer-[:not(:placeholder-shown)]:translate-x-[0.15rem] peer-[:not(:placeholder-shown)]:scale-[0.85] motion-reduce:transition-none dark:text-neutral-400 dark:peer-focus:text-primary">
-                                    Delivery Address
+                                    Delivery Address/Location
                                 </label>
 
                                 <!-- Icon and Pen Icon -->
@@ -110,7 +110,7 @@
                             <div class="flex items-center mb-4">
                                 <div
                                     class="relative flex items-center w-full h-[75px] rounded-md  border-blue-600  border  px-3 py-2  radio-checked">
-                                    <input type="radio" checked id="bank_1" name="payment_method"
+                                    <input type="radio" checked id="bank_1" name="payment_method" value="selcom"
                                         class="absolute  right-3 top-1/2 transform -translate-y-1/2 cursor-pointer appearance-none checked:border-blue-500 checked:ring-0 focus:outline-none">
                                     <label for="bank_1"
                                         class="relative items-center w-full pl-2 pr-12 border-gray-300 rounded-sm">
@@ -124,7 +124,7 @@
                             <div class="flex items-center">
                                 <div
                                     class="relative flex items-center w-full h-[75px] border border-gray-300 px-3 py-2 rounded-md radio-checked">
-                                    <input type="radio" id="bank_2" name="payment_method"
+                                    <input type="radio" id="bank_2" name="payment_method" value="other"
                                         class="absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer appearance-none checked:border-blue-500 checked:ring-0 focus:outline-none">
                                     <label for="bank_2"
                                         class="relative items-center w-full pl-2 pr-12 border-gray-300 rounded-sm">
