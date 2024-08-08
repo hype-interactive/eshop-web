@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Integration\Beem\BeemSMSController;
 use App\Models\Cart;
 use App\Models\Customer;
 use App\Models\Order;
@@ -10,6 +11,8 @@ use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator;
 
 class PaymentController extends Controller
 {
@@ -17,8 +20,27 @@ class PaymentController extends Controller
 
     function createOrder(Request $request)
     {
+        $rules=
+        [
+           'full_name'=>'required',
+           'email'=>'required',
+           'phone_number'=>'required',
+           'payment_number'=>'required',
+           'location'=>'required',
+           'payment_method'=>'required'
+        ];
 
         //validation of order
+        $validator = Validator::make($request->all(), $rules);
+
+        // Check if validation fails
+        if ($validator->fails()) {
+            // Redirect back with input and validation errors
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
 
         $array=[
             'full_name'=>$request->full_name,
@@ -26,19 +48,22 @@ class PaymentController extends Controller
              'location'=>$request->location,
         ];
 
-        // update user information
-
-
+        try{
 
 
         //create order form the cart
         $order_id = 'ES' . time();
         $customer_id = session('user')->id;
         $payment_method=$request->payment_method;
-        DB::transaction(function () use ($order_id, $customer_id,$payment_method, $array) {
+        $payment_number=$request->payment_number;
+//message
+        $message="Dear $request->full_name , Your order has been created successfully with order id : $order_id, Please make payment to complete your order  Thanks For choosing us ";
+
+
+        DB::transaction(function () use ($order_id, $customer_id,$payment_method, $array ,$payment_number,$message) {
        //clear of cart
            Customer::where('id',session('user')->id)->update($array);
-     session()->put('user',Customer::where('id',session('user')->id)->first());
+         session()->put('user',Customer::where('id',session('user')->id)->first());
 
             $total_amount = 00;
             foreach (Cart::where('customer_id', $customer_id)->get() as $cart) {
@@ -60,8 +85,21 @@ class PaymentController extends Controller
                 'payment_status' => 'pending',
                 'status' => 'pending',
                 'payment_method'=>$payment_method,
+                'payment_number'=>$payment_number,
 
             ]);
+
+              //send sms to customer
+            try {
+             $return_data=   BeemSMSController::send($payment_number,$message,$payment_number,'');
+             Log::info($return_data);
+            } catch (\Throwable $th) {
+                Log::error( 'payment controller:97 '. $th);
+            }
+
+
+
+
             //clear cart
             Cart::where('customer_id', $customer_id)->delete();
         });
@@ -69,6 +107,12 @@ class PaymentController extends Controller
         session()->put('paymentOrder',false);
         session()->forget('paymentOrder');
         return redirect()->route('customer-order');
+
+    }
+    catch(\Exception $e){
+        return $e->getMessage();
+
+    }
     }
 
     function index()

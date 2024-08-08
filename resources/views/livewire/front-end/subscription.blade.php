@@ -19,7 +19,7 @@
                 <div class="flex flex-wrap justify-center justify-between ">
 
                     <!-- Basic Plan -->
-                    <div class="w-full md:w-1/3 bg-white rounded-3xl  border-1 shadow p-6">
+                    <div class="w-full md:w-1/3 bg-white rounded-3xl  border-1 shadow p-1">
                         <h3 class="text-xl font-bold mb-4">Basic</h3>
                         <p class="text-gray-600 mb-4">Lorem Ipsum is simply dummy text of the printing and typesetting
                             industry.</p>

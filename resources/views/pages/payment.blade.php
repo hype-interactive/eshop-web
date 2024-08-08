@@ -37,6 +37,9 @@
 
                                 <div class="grid grid-cols-1 lg:grid-cols-1 gap-4">
                                 <div class="relative mb-4">
+                                    @error('full_name')
+                                        <div class="text-xs text-red-500" > {{ $message }} </div>
+                                    @enderror
                                     <input type="text" name="full_name"
                                         class="peer m-0 block h-[58px] w-full rounded-md border border-gray-200 border-secondary-500 bg-transparent bg-clip-padding px-3 py-4 text-base font-normal leading-tight text-neutral-700 transition duration-200 ease-linear placeholder:text-transparent focus:border-primary focus:pb-[0.625rem] focus:pt-[1.625rem] focus:text-neutral-700 focus:outline-none peer-focus:text-primary dark:border-neutral-400 dark:text-white dark:autofill:shadow-autofill dark:focus:border-primary dark:peer-focus:text-primary [&:not(:placeholder-shown)]:pb-[0.625rem] [&:not(:placeholder-shown)]:pt-[1.625rem]"
                                         id="floatingInput" value="{{ session('user')->full_name }}" placeholder="John" />
@@ -50,7 +53,13 @@
 
 
 
+                                <div class="flex w-full">
+                                    <div class="w-1/2 w-full">
                                 <div class="relative mb-4">
+                                    @error('phone_number')
+                                    <div class="text-xs text-red-500" > {{ $message }} </div>
+                                  @enderror
+
                                     <input type="number" name="phone_number" readonly
                                         class="peer m-0 block h-[58px] w-full rounded-md border border-gray-200 border-secondary-500 bg-transparent bg-clip-padding px-3 py-4 text-base font-normal leading-tight text-neutral-700 transition duration-200 ease-linear placeholder:text-transparent focus:border-primary focus:pb-[0.625rem] focus:pt-[1.625rem] focus:text-neutral-700 focus:outline-none peer-focus:text-primary dark:border-neutral-400 dark:text-white dark:autofill:shadow-autofill dark:focus:border-primary dark:peer-focus:text-primary [&:not(:placeholder-shown)]:pb-[0.625rem] [&:not(:placeholder-shown)]:pt-[1.625rem]"
                                         id="floatingInput" value="{{ session('user')->phone }}"  placeholder="+255" />
@@ -59,9 +68,31 @@
                                         Phone Number
                                     </label>
                                 </div>
+                                    </div>
+                                    <div class="w-1/2 w-full ml-4 ">
+                                <div class="relative mb-4">
+                                    @error('payment_number')
+                                    <div class="text-xs text-red-500" > {{ $message }} </div>
+                                @enderror
+
+                                    <input type="number" name="payment_number"
+                                        class="peer m-0 block h-[58px] w-full rounded-md border border-gray-200 border-secondary-500 bg-transparent bg-clip-padding px-3 py-4 text-base font-normal leading-tight text-neutral-700 transition duration-200 ease-linear placeholder:text-transparent focus:border-primary focus:pb-[0.625rem] focus:pt-[1.625rem] focus:text-neutral-700 focus:outline-none peer-focus:text-primary dark:border-neutral-400 dark:text-white dark:autofill:shadow-autofill dark:focus:border-primary dark:peer-focus:text-primary [&:not(:placeholder-shown)]:pb-[0.625rem] [&:not(:placeholder-shown)]:pt-[1.625rem]"
+                                        id="floatingInput" value="{{ session('user')->phone }}"  placeholder="+255" />
+                                    <label for="floatingInput"
+                                        class="pointer-events-none absolute left-3 top-4 text-neutral-500 transition-transform duration-200 ease-linear peer-focus:-translate-y-3 peer-focus:translate-x-[0.15rem] peer-focus:scale-[0.85] peer-focus:text-primary peer-placeholder-shown:top-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:text-neutral-500 peer-placeholder-shown:left-3 peer-[:not(:placeholder-shown)]:-translate-y-3 peer-[:not(:placeholder-shown)]:translate-x-[0.15rem] peer-[:not(:placeholder-shown)]:scale-[0.85] motion-reduce:transition-none dark:text-neutral-400 dark:peer-focus:text-primary">
+                                        Payment Number
+                                    </label>
+                                </div>
+                                    </div>
+
+                                </div>
 
 
                                 <div class="relative mb-4">
+                                    @error('email')
+                                    <div class="text-xs text-red-500" > {{ $message }} </div>
+                                @enderror
+
                                     <input type="email" required name="email"
                                         class="peer m-0 block h-[58px] w-full rounded-md border border-gray-200 border-secondary-500 bg-transparent bg-clip-padding px-3 py-4 text-base font-normal leading-tight text-neutral-700 transition duration-200 ease-linear placeholder:text-transparent focus:border-primary focus:pb-[0.625rem] focus:pt-[1.625rem] focus:text-neutral-700 focus:outline-none peer-focus:text-primary dark:border-neutral-400 dark:text-white dark:autofill:shadow-autofill dark:focus:border-primary dark:peer-focus:text-primary [&:not(:placeholder-shown)]:pb-[0.625rem] [&:not(:placeholder-shown)]:pt-[1.625rem]"
                                         id="floatingInput"  value="{{ session('user')->email }}"  placeholder="Enter email address " />
@@ -76,6 +107,10 @@
 
                             <div class="relative mb-4">
                                 <!-- Input Field -->
+                                @error('location')
+                                <div class="text-xs text-red-500" > {{ $message }} </div>
+                            @enderror
+
                                 <input type="text" required name="location"
                                     class="peer block w-full h-[80px] rounded-md border border-gray-200 border-secondary-500 bg-transparent bg-clip-padding px-12 py-4 text-base font-normal leading-tight text-neutral-700 transition duration-200 ease-linear placeholder:text-transparent focus:border-primary focus:pb-[0.625rem] focus:pt-[1.625rem] focus:text-neutral-700 focus:outline-none peer-focus:text-primary dark:border-neutral-400 dark:text-white dark:autofill:shadow-autofill dark:focus:border-primary dark:peer-focus:text-primary [&:not(:placeholder-shown)]:pb-[0.625rem] [&:not(:placeholder-shown)]:pt-[1.625rem]"
                                     id="floatingInput" value="{{ session('user')->location  }}" />
@@ -87,18 +122,14 @@
                                 </label>
 
                                 <!-- Icon and Pen Icon -->
-                                <svg class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 w-6 h-6"
+                                <svg class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500 w-6 h-6"
                                     fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
                                     xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M3 17.25V21h3.75L17.812 10.937l-3.75-3.75L3 17.25z"></path>
                                 </svg>
 
-                                <svg class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500 w-6 h-6"
-                                    fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 13H5v-2h14v2z"></path>
-                                </svg>
+
                             </div>
 
 

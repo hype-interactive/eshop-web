@@ -36,11 +36,11 @@
                 <input type="hidden" name="value" value="decreases" />
 
             <button id="decrease"
-                class="px-4 py-1 border border-gray-300 rounded-md bg-gray-100 text-gray-600 hover:bg-gray-200 focus:outline-none focus:ring-2 shadow-md  focus:ring-black-500">-</button>
+                class="px-4 py-1 mt-2 border border-gray-300 rounded-md bg-gray-100 text-gray-600 hover:bg-gray-200 focus:outline-none focus:ring-2 shadow-md  focus:ring-black-500">-</button>
 
             </form>
                 <input  name="quantity" type="text" id="quantity" numeber
-                class="w-14 border-none  mx-1  bg-gray-100 text-center  text-gray-700"
+                class="w-14 border-none  bg-gray-100 text-center  text-gray-700"
                 value="{{ $quantity }}">
 
                 <form action ="{{ route('change-product-quantity') }} " method="post">
@@ -49,7 +49,7 @@
                     <input type="hidden" name="value" value="increases" />
 
             <button id="increase"
-                class="px-4 py-1 border border-gray-300 rounded-md bg-gray-100   text-gray-600 hover:bg-gray-200 focus:outline-none focus:ring-2 shadow-md focus:ring-black-500">+</button>
+                class="px-4 py-1 mt-2 border border-gray-300 rounded-md bg-gray-100   text-gray-600 hover:bg-gray-200 focus:outline-none focus:ring-2 shadow-md focus:ring-black-500">+</button>
             </form>
 
         </div>

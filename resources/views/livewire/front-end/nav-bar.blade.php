@@ -10,7 +10,7 @@
                 <div class="flex w-2/3">
 
                     <form class="flex-grow flex items-center  rounded-full border border-gray-300 m-0">
-                        <button id="dropdown-button" data-dropdown-toggle="dropdown"
+                        <button id="dropdown-button" data-dropdown-toggle="dropdownw"
                             class="flex-shrink-0 z-10  me-2 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center focus:ring-[#3b5998]/50 text-gray-900 bg-gray-50 border-none rounded-l-full hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white"
                             type="button">
                             All categories
@@ -20,7 +20,8 @@
                                     d="m1 1 4 4 4-4" />
                             </svg>
                         </button>
-                        <div id="dropdown"
+
+                        <div id="dropdownw"
                             class="z-50 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
                             <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdown-button">
                                 @foreach (DB::table('product_categories')->get() as $category )
@@ -35,14 +36,33 @@
                             </ul>
                         </div>
 
-                        <div class="relative flex-grow">
-                                <input type="search" id="search-dropdown"
-                                class="block p-2.5 focus:ring-[#3b5998]/50 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-full border-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
-                                placeholder="Search ..." required />
-                                <div id="search-results" class="absolute top-full left-0 w-full bg-white shadow-lg mt-2 rounded-lg hidden">
-                                <!-- Predictions will be inserted here -->
-                                </div>
-                        </div>
+
+
+                        <div id="dropdown"
+                        class="z-50 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-1/2 dark:bg-gray-700">
+                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdown-button">
+                            @foreach (DB::table('products')->get() as $category )
+
+                            <li class="flex items-start space-x-4 px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                <a href="{{ url('customer-product', $category->id) }}" class="flex items-center space-x-4 w-full">
+                                    <!-- Image -->
+                                    <img src="{{ $category->image_url }}" alt="{{ $category->name }}" class="w-16 h-16 object-cover rounded-lg">
+
+                                    <!-- Content -->
+                                    <div class="flex-1">
+                                        <p class="font-medium text-lg text-gray-900 dark:text-white">{{ $category->name }}</p>
+                                        <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">{{ $category->description }}</p>
+                                    </div>
+                                </a>
+                            </li>
+
+                            @endforeach
+
+                        </ul>
+
+
+                    </div>
+
 
                     </form>
                     <svg data-slot="icon" fill="none" class="w-7 h-7 m-2" stroke-width="1.5" stroke="#2759A8"
@@ -111,10 +131,14 @@
 
                 <div class="flex items-center p-4">
                     <a href="{{ route('customer-product-page') }}" type="button" class="text-blue-900 bg-gray-50 h-10 rounded-2xl border-none focus:outline-none focus:ring-[#3b5998]/50 font-medium text-sm text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 me-4 p-2 ">
-                        <svg data-slot="icon" class="w-6 h-6" fill="none" stroke-width="1.5" stroke="currentColor"
+                        {{-- <svg data-slot="icon" class="w-6 h-6" fill="none" stroke-width="1.5" stroke="currentColor"
                             viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
-                        </svg>
+                        </svg> --}}
+
+                        <svg data-slot="icon" class="w-8 h-8" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 7.125C2.25 6.504 2.754 6 3.375 6h6c.621 0 1.125.504 1.125 1.125v3.75c0 .621-.504 1.125-1.125 1.125h-6a1.125 1.125 0 0 1-1.125-1.125v-3.75ZM14.25 8.625c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v8.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 0 1-1.125-1.125v-8.25ZM3.75 16.125c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 0 1-1.125-1.125v-2.25Z"></path>
+                          </svg>
                         Menu
                     </a>
 
@@ -138,6 +162,12 @@
                             d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z">
                         </path>
                     </svg>
+                    </a>
+                    <a href="{{ route('subscription') }}" class="inline-flex  items-center px-6 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        subscribe
+                        <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                        </svg>
                     </a>
                 </div>
             </div>

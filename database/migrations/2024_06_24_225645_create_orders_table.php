@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('date')->nullable();
             $table->text('callback')->nullable();
             $table->string('payment_method')->nullable();
+            $table->string('payment_number')->nullable();
              $table->string('payment_status')->nullable();
              $table->string('status')->nullable();
 

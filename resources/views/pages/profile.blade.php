@@ -56,7 +56,6 @@
                             </svg>
                             Edit
                         </button>
-
                     </div>
                     <div class="flex ">
                         <img class="w-24 h-24 rounded-full mb-4" src="{{ asset('profile/profile.png') }}"   alt="Profile Picture">
@@ -71,8 +70,6 @@
                             </svg>
                             <input type="file" id="uploadFile1" class="hidden" />
                         </label>
-
-
                     </div>
                     <div class="mt-6 space-y-4">
                         <div class="flex space-x-4">
@@ -104,6 +101,70 @@
                     </form>
 
                     @else
+
+
+    @if(session('order_list'))
+    <div class="flex  justify-center   p-4 bg-gray-100 rounded-lg">
+        <section class="bg-white rounded-lg w-full max-w-lg mx-auto p-6 overflow-y-auto">
+            <!-- Modal Header -->
+            <div class="flex justify-between">
+
+                <div class="font-bold flex">
+                    <div class="upper-case"> Order Id </div>
+                    <div> {{ session('order_id') }} </div>
+
+                </div>
+
+            <form action="{{ route('clear-order-list') }}" method="get">
+                @csrf
+
+
+                <button class="bg-gray-200 rounded-lg w-6 h-6 "> <svg data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+              </svg>
+             </button>
+            </form>
+        </div>
+
+
+            @foreach (session('order_list') as $order )
+
+
+            <!-- Modal Content -->
+            <div class="mt-4">
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <div class="flex-shrink-0">
+                        <img src="https://pagedone.io/asset/uploads/1705474774.png" alt="Product Image" class="w-32 h-32 object-cover rounded-md">
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-xl font-semibold"> {{ $order->name }} </h3>
+                        <p class="text-gray-500"> </p>
+                        <div class="mt-4">
+                            <p><span class="font-semibold">Unit:</span> {{ $order->unit }}</p>
+                            <p><span class="font-semibold">Qty:</span> {{ $order->quantity }}</p>
+                            <p><span class="font-semibold">Price:</span>{{ number_format(( $order->price),2) }} TZS </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-6 border-t border-gray-300 pt-4">
+                    <div class="flex flex-col sm:flex-row justify-between gap-4">
+                        <div>
+                            <p class="font-semibold text-gray-700">Status</p>
+                            <p class="text-green-500">{{ DB::table('orders')->where('order_id',$order->order_id)->value('status')}} </p>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-700"> Total Price:</p>
+                            <p class="text-black"> {{ number_format(($order->quantity * $order->price),2) }}   </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            @endforeach
+
+        </section>
+    </div>
+@else
 
 
                     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -182,6 +243,9 @@
                                     <th scope="col" class="px-6 py-3">
                                        Status
                                     </th>
+                                    <th scope="col" class="px-6 py-3">
+
+                                     </th>
 
                                 </tr>
                             </thead>
@@ -189,7 +253,7 @@
                                 @foreach ($orders as  $order)
 
 
-                                <tr class="bg-white border-b sx:bg-gray-800 sx:border-gray-700 hover:bg-gray-50 sx:hover:bg-gray-600">
+                                <tr  class="bg-white border-b sx:bg-gray-800 sx:border-gray-700 hover:bg-gray-50 sx:hover:bg-gray-600">
 
                                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap sx:text-white">
                                        {{ $order->order_id }}
@@ -204,6 +268,23 @@
                                         {{ $order->status }}
                                     </td>
 
+                                    <td class="px-6 py-4">
+                                        <form action="{{ route('customer-order-list') }}" method="post">
+                                            @csrf
+
+                                        <input type="hidden" value="{{ $order->order_id }}" name="order_id">
+                                            <button>
+                                                <div class="w-6 h-6">
+                                                <svg data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z"></path>
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path>
+                                                  </svg>
+                                                </div>
+                                            </button>
+                                        </form>
+                                    </td>
+
+
                                 </tr>
                                 @endforeach
 
@@ -213,11 +294,30 @@
                         </table>
 
 
+
+
+
                     </div>
 
 
 
+
+@endif
+
+
+
+
+
+
+
                     @endif
+
+
+
+
+
+
+
 
 
                 </div>
@@ -226,4 +326,5 @@
             </div>
         </div>
     @endsection
+
 </div>

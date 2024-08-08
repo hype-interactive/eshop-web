@@ -6,6 +6,8 @@ use App\Http\Controllers\Customer\ProfileController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\Subscriptions;
+use App\Http\Controllers\VendorController;
 use App\Http\Controllers\ViewProductController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
@@ -64,17 +66,23 @@ Route::post('payment-order', [PaymentController::class, 'createOrder'])->name('m
 
 Route::get('customer-profile', [ProfileController::class, 'index'])->name('customer-profile'); //done
 Route::get('customer-order',[OrderController::class,'index'])->name('customer-order');
+Route::post('customer-order-list',[OrderController::class,'orderList'])->name('customer-order-list');
+Route::get('clear-order-list',[OrderController::class,'disableList'])->name('clear-order-list');
 Route::get('customer-logout',[LoginController::class,'logout'])->name('customer-logout');
 Route::post('update-customer-info',[ProfileController::class,'update'])->name('update-customer-info');
-Route::get('customer-subscription', [App\Livewire\FrontEnd\Subscription::class, 'render'])->name('subscription');
+Route::post('/register-vendor/{id}', [VendorController::class, 'index'])->name('register-vendor');
+Route::post('/vendor-register', [VendorController::class, 'register'])->name('vendor.register');
 
 
-
+Route::get('customer-subscription', [Subscriptions::class, 'index'])->name('subscription');
 Route::fallback(function () {
     return response()->view('page-not-found', [], 404);
 });
 
 
+Route::get('successfully-registered',function(){
+    return view('sections.success-page');
+})->name('successfully-registered');
 
 // Route::get('test-page', function (){
 //     return view('product_list');

@@ -11,6 +11,7 @@
     <link href="{{ asset('assets/front-end.css') }}" rel="stylesheet" />
     <script src="{{ asset('assets/front-end.js') }}">  </script>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+
 </head>
 <body class="antialiased">
     <div id="app">
@@ -20,6 +21,6 @@
     @yield('front-end-main')
     @include('shared.upper-footer')
     @include('shared.footer')
-    <script src="{{ mix('js/app.js') }}"></script>
+    <script src="{{ mix('js/app.js') }}">   </script>
 </body>
 </html>

@@ -19,6 +19,7 @@
 
                     </ul>
                 </div>
+
                 <div class="bg-white border mb-8 rounded-md">
                     <h2 class=" border-b  font-semibold mb-4 px-4 py-2">Price</h2>
                     <form method="GET" action="{{ route('customer-product-page') }}">
