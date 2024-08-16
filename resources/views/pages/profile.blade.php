@@ -75,7 +75,7 @@
                         <div class="flex space-x-4">
                             <div class="w-1/2">
                                 <label class="block text-sm font-medium text-gray-700" for="name">Name</label>
-                                <input type="text"  name="full_name" id="name" value="{{ session('user')->full_name }}"
+                                <input type="text"  name="full_name"  value="{{ session('user')->full_name }}"
                                     class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
                             </div>
                             <div class="w-1/2">

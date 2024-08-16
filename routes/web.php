@@ -79,6 +79,7 @@ Route::fallback(function () {
     return response()->view('page-not-found', [], 404);
 });
 
+Route::get('rgister-vendor',function(){ return view('pages.vendor-registration');})->name('register-venor-form');
 
 Route::get('successfully-registered',function(){
     return view('sections.success-page');

@@ -26,13 +26,17 @@ class ProfileController extends Controller
 
 function update(Request $request){
 
-    $id=session('user');
+    $id=session('user')->id;
 
     $rules = [
         'full_name' => 'required|string|max:255',
         'location' => 'required|string|max:255',
-        'email' => 'required|email|max:255|unique:customers,email,' . $id,
+        'email' => 'required|email|max:255',
     ];
+
+
+    try{
+
 
 
     // Perform validation
@@ -40,23 +44,34 @@ function update(Request $request){
 
     // Check if validation fails
     if ($validator->fails()) {
+
         return redirect()->back()
             ->withErrors($validator)
             ->withInput();
     }
 
+
     // Find the customer by ID
+
     $customer = Customer::findOrFail($id);
 
     // Update customer information
-    $customer->update([
-        'full_name' => $request->input('full_name'),
+ $customer_data=   $customer->update([
+        'full_name' => $request->get('full_name'),
         'location' => $request->input('location'),
         'email' => $request->input('email'),
     ]);
 
 
+    $customer = Customer::findOrFail($id);
+    session()->put('user',$customer);
+
+
     return back();
+
+}catch(\Exception $error){
+    return back();
+}
 
 }
 }

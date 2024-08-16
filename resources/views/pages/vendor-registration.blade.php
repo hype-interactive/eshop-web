@@ -18,18 +18,18 @@
     }
 </style>
 <div class="form-container p-4 mt-8 bg-white rounded-lg xl:p-6">
-    <h1 class="text-lg font-medium text-gray-700 capitalize sm:text-xl md:text-2xl text-center">Register New Vendor</h1>
+    <h1 class="text-lg font-medium text-gray-700 capitalize sm:text-xl md:text-2xl text-center"> </h1>
 
     <form action="{{ route('vendor.register') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
         <div class="preview-container">
-            <img id="imagePreview" src="{{ asset('product/product_image.jpeg') }}" alt="Image Preview" class="object-fill rounded-full" style="width: 200px; height: 200px;">
+            <img id="imagePreview" src="{{ asset('/profile/p_image.png') }}" alt="Image Preview" class="object-fill rounded-full" style="width: 200px; height: 200px;">
         </div>
 
         <div class="mb-4">
             <label for="photo" class="block text-sm text-gray-700 capitalize">Profile Photo</label>
-            <input type="file" id="photo" name="photo" accept="image/*" class="block w-full mt-2" onchange="previewImage(event)">
+            <input type="file"  name="photo" accept="image/*" class="block w-full mt-2" onchange="previewImage(event)">
             @error('photo')
             <span class="text-red-500 text-xs">{{ $message }}</span>
             @enderror
@@ -75,6 +75,15 @@
                 <span class="text-red-500 text-xs">{{ $message }}</span>
                 @enderror
             </div>
+
+            <div>
+                <label for="email" class="block text-sm text-gray-700 capitalize">Tin Number </label>
+                <input  name="tin_number" type="tin_number" placeholder=" tin no  " required class="block w-full px-4 py-2.5 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40">
+                @error('tin_number')
+                <span class="text-red-500 text-xs">{{ $message }}</span>
+                @enderror
+            </div>
+
 
             <div class="mt-4 ">
                 <button  style="background-color: #2759A9; " type="submit" class="mt-4 px-4 py-2 w-full text-white rounded-md hover:bg-blue-500">Register</button>

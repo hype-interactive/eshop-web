@@ -18,13 +18,18 @@ use Illuminate\Support\Facades\DB;
 class VendorController extends Controller
 {
     function index(Request $request,$id){
+      if(session('user')){
+        session()->put('package_id',$id);
+        return redirect()->route('register-venor-form');
+      }else{
+        return redirect()->route('customer-login');
+      }
 
-     session()->put('package_id',$id);
-        return view('pages.vendor-registration');
     }
 
     public function register(Request $request)
     {
+
 
         $validator = Validator::make($request->all(), [
             'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
@@ -35,11 +40,18 @@ class VendorController extends Controller
             'email' => 'required|email|max:255|unique:users,email',
         ]);
 
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
-        $password_value=str::random(8);
 
+
+
+        if ($validator->fails()) {
+
+            return back()->withErrors($validator)->withInput();
+
+        }
+
+
+
+        $password_value=str::random(8);
 
         $vendor = new User();
         $vendor->first_name = $request->input('first_name');
@@ -76,7 +88,6 @@ class VendorController extends Controller
            }
 
         //send sms or email
-
         return redirect()->route('successfully-registered');
 
     }

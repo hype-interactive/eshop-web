@@ -41,6 +41,7 @@
 
 
 
+
             <li class="relative px-4 py-2 mb-4 last:mb-0 cursor-pointer group">
                 <div wire:click="selectedMenu(0)" wire:loading.attr="disabled" class="flex items-center justify-between text-white  hover:text-[#F5AD42] truncate transition duration-150">
                     <div class="flex items-center">

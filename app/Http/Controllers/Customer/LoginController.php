@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Customer;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -26,6 +27,25 @@ class LoginController extends Controller
         // Login successful
         Auth::login($customer);
 
+
+
+        // increment
+
+        Customer::where('phone', $credentials['phone_number'])
+        ->update([
+            'vendor_notification_day' => DB::raw('vendor_notification_day + 1')
+        ]);
+
+        if(Customer::where('phone', $credentials['phone_number'])->value('vendor_notification_day') <= 7){
+
+            session()->put('show-banner','true');
+
+            Customer::where('phone', $credentials['phone_number'])
+            ->update([
+                'vendor_notification_day' => 0
+            ]);
+
+        }
         // Regenerate session
         $request->session()->regenerate();
         // dd(auth()->user());

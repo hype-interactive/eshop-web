@@ -37,9 +37,75 @@
                         </div>
 
 
+                        <div class="relative flex-grow">
+                            <input type="search" id="search-dropdown"
+                                   class="block p-2.5 focus:ring-[#3b5998]/50 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-full border-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
+                                   placeholder="Search ..." oninput="filterDropdown()" required />
 
-                        <div id="dropdown"
+                            <!-- Dropdown List -->
+                            <div id="dropdown-list"
+                                 class="absolute w-full mt-2 bg-white rounded-lg shadow-lg max-h-60 overflow-y-auto hidden">
+                                <ul class="list-none p-2">
+
+                                    @foreach (DB::table('products')->get() as $product )
+
+
+
+                                    <li class="p-2 hover:bg-gray-100 cursor-pointer flex items-center">
+                                        <a a href="{{ url('customer-product',$product->id) }}" >
+                                        <img src="path-to-image/product1.jpg" alt="Product 1" class="w-8 h-8 mr-2">
+                                        <span> {{ $product->name }}</span>
+                                        </a>
+                                    </li>
+
+                                    @endforeach
+
+
+
+                                    <!-- Add more options here -->
+                                </ul>
+                            </div>
+                        </div>
+
+                        <script>
+function filterDropdown() {
+    const input = document.getElementById('search-dropdown');
+    const filter = input.value.toLowerCase();
+    const dropdown = document.getElementById('dropdown-list');
+    const options = dropdown.getElementsByTagName('li');
+
+    dropdown.classList.remove('hidden'); // Show the dropdown list
+
+    for (let i = 0; i < options.length; i++) {
+        let txtValue = options[i].textContent || options[i].innerText;
+        if (txtValue.toLowerCase().indexOf(filter) > -1) {
+            options[i].style.display = "";
+        } else {
+            options[i].style.display = "none";
+        }
+    }
+}
+
+function hideDropdownOnClickOutside(event) {
+    const dropdownContainer = document.getElementById('dropdown-container');
+    const dropdownList = document.getElementById('dropdown-list');
+
+    if (!dropdownContainer.contains(event.target)) {
+        dropdownList.classList.add('hidden'); // Hide the dropdown list
+    }
+}
+
+// Add event listener for clicking outside the dropdown
+document.addEventListener('click', hideDropdownOnClickOutside);
+
+
+
+</script>
+
+
+                        <div id="dropdownSection"
                         class="z-50 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-1/2 dark:bg-gray-700">
+
                         <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdown-button">
                             @foreach (DB::table('products')->get() as $category )
 
@@ -164,7 +230,7 @@
                     </svg>
                     </a>
                     <a href="{{ route('subscription') }}" class="inline-flex  items-center px-6 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                        subscribe
+                        Vendor
                         <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                         </svg>
