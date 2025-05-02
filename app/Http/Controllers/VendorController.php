@@ -49,10 +49,7 @@ class VendorController extends Controller
 
         }
 
-
-
         $password_value=str::random(8);
-
         $vendor = new User();
         $vendor->first_name = $request->input('first_name');
         $vendor->middle_name = $request->input('middle_name');
@@ -80,6 +77,9 @@ class VendorController extends Controller
 
         $phone_number=PhoneHelper::formatPhoneNumber($request->input('phone_number'));
 
+
+        /// make payment now 
+
         try {
             $return_data=   BeemSMSController::send($phone_number,$message,$phone_number,'');
             Log::info($return_data);
@@ -91,5 +91,9 @@ class VendorController extends Controller
         return redirect()->route('successfully-registered');
 
     }
+
+
+
+
 
 }

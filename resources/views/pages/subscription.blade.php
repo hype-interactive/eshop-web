@@ -144,44 +144,7 @@
                 </div>
 
 
-                @foreach ($packages as $package)
-
-
-                      <div class="bg-white rounded-3xl border shadow p-6">
-                    <h3 class="text-xl font-bold mb-4"> {{ $package->name }}</h3>
-                    <p class="text-gray-600 mb-4"> {{ $package->description }}</p>
-                    <p class="text-4xl font-bold mb-4">Tsh {{ number_format($package->price,2) }} <span class="text-lg font-normal">/mo</span></p>
-                    <h4 class="text-lg font-bold mb-2">What's included:</h4>
-                    <ul class="mb-6">
-
-                        @foreach (DB::table('services')->whereIn('id',DB::table('package_has_services')->where('package_id',$package->id)->pluck('service_id')->toArray())->get() as  $service)
-
-
-                        <li class="flex items-center mb-2">
-                            <svg data-slot="icon" fill="#189009" class="w-6 h-6 text-[#F5AD42]" stroke-width="1.5" stroke="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
-                            </svg> {{ $service->name }}
-                        </li>
-
-                        @endforeach
-
-                        @foreach (DB::table('services')->whereNotIn('id',DB::table('package_has_services')->where('package_id',$package->id)->pluck('service_id')->toArray())->get() as  $not_included_service)
-
-                        <li class="flex items-center mb-2 text-gray-400">
-                            <svg data-slot="icon" fill="#636360" class="w-6 h-6 text-[#F5AD42]" stroke-width="1.5" stroke="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
-                            </svg> {{ $not_included_service->name }}
-                        </li>
-
-                          @endforeach
-                    </ul>
-                    <form method="post" action="{{ route('register-vendor', $package->id ) }}">
-                        @csrf
-                    <button class="bg-white text-[#1C70CD] border font-bold px-4 py-2 rounded-md w-full">Choose Plan</button>
-                    </form>
-                </div>
-
-                @endforeach
+                <livewire:component.subscription :packages="$packages" />
 
 
 

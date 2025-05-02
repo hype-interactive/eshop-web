@@ -12,9 +12,6 @@ use App\Http\Controllers\ViewProductController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return redirect()->route('customer-welcome-page');
-})->name('home');
 
 
 
@@ -27,6 +24,10 @@ Route::get('login',function(){
 Route::get('register',function(){
     return redirect()->route('customer-register');
 });
+
+Route::get('/', function () {
+    return redirect()->route('customer-welcome-page');
+})->name('home');
 
 
 Route::middleware([
@@ -67,8 +68,10 @@ Route::post('payment-order', [PaymentController::class, 'createOrder'])->name('m
 Route::get('customer-profile', [ProfileController::class, 'index'])->name('customer-profile'); //done
 Route::get('customer-order',[OrderController::class,'index'])->name('customer-order');
 Route::post('customer-order-list',[OrderController::class,'orderList'])->name('customer-order-list');
-Route::get('clear-order-list',[OrderController::class,'disableList'])->name('clear-order-list');
 Route::get('customer-logout',[LoginController::class,'logout'])->name('customer-logout');
+
+
+Route::get('clear-order-list',[OrderController::class,'disableList'])->name('clear-order-list');
 Route::post('update-customer-info',[ProfileController::class,'update'])->name('update-customer-info');
 Route::post('/register-vendor/{id}', [VendorController::class, 'index'])->name('register-vendor');
 Route::post('/vendor-register', [VendorController::class, 'register'])->name('vendor.register');
@@ -79,16 +82,17 @@ Route::fallback(function () {
     return response()->view('page-not-found', [], 404);
 });
 
-Route::get('rgister-vendor',function(){ return view('pages.vendor-registration');})->name('register-venor-form');
+Route::get('register-vendor',function(){ return view('pages.vendor-registration');})->name('register-venor-form');
 
 Route::get('successfully-registered',function(){
     return view('sections.success-page');
 })->name('successfully-registered');
 
-// Route::get('test-page', function (){
-//     return view('product_list');
-// });
 
-// Route::get('customer-dashboard',function (){
-//     return view('login');
-// });
+
+
+Route::post('/process-selcom-payment', 'PaymentController@processSelcomPayment')->name('process-selcom-payment');
+Route::post('/check-payment-status', 'PaymentController@checkPaymentStatus')->name('check-payment-status');
+
+
+Route::get('')->name('vendor.dashboard');
