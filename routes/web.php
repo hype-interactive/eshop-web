@@ -97,4 +97,4 @@ Route::post('/process-selcom-payment', 'PaymentController@processSelcomPayment')
 Route::post('/check-payment-status', 'PaymentController@checkPaymentStatus')->name('check-payment-status');
 
 
-Route::get('')->name('vendor.dashboard');
+// Route::get('')->name('vendor.dashboard');
