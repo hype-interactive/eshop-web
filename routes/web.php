@@ -77,7 +77,9 @@ Route::post('/register-vendor/{id}', [VendorController::class, 'index'])->name('
 Route::post('/vendor-register', [VendorController::class, 'register'])->name('vendor.register');
 
 
-Route::get('customer-subscription', [Subscriptions::class, 'index'])->name('subscription');
+Route::get('customer-subscription', function(){
+    return  redirect()->to('https://admin.eshops.hype.co.tz/register');
+})->name('subscription');
 Route::fallback(function () {
     return response()->view('page-not-found', [], 404);
 });
