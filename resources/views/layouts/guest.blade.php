@@ -5,9 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    {{-- <link rel="icon" type="image/svg+xml" href="/assets/logo.png" /> --}}
-  <link rel="icon" type="image/svg+xml" href="storage/system/logo.png" />
-
+    <link rel="icon" type="image/svg+xml" href="storage/system/logo.png" />
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
@@ -17,28 +15,44 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @livewireStyles
+
 </head>
 
-<body class="h-screen md:grid grid-cols-2">
-    <div class=" w-full bg-black hidden md:block">
-        <img src="https://res.cloudinary.com/do6zpq1dx/image/upload/v1697571247/KanisaOnline/xbospt43muekpfgjfdae.png" alt="" class="h-screen w-full z-10 object-cover ">
-        <div class="z-20 absolute top-5 left-5">
-            <img src="{{asset('assets/logo.png')}}" alt="" class="h-14">
+<body class="min-h-screen md:h-screen md:grid md:grid-cols-2">
+    <!-- Left Side - Background Image (Desktop Only) -->
+    <div class="hidden md:block relative bg-black">
+        <img src="https://res.cloudinary.com/do6zpq1dx/image/upload/v1697571247/KanisaOnline/xbospt43muekpfgjfdae.png" 
+             alt="" 
+             class="h-full w-full object-cover">
+        <div class="absolute top-4 left-4 lg:top-5 lg:left-5">
+            <img src="{{asset('assets/logo.png')}}" alt="" class="h-10 sm:h-12 lg:h-14">
         </div>
     </div>
-    <div class="h-screen flex flex-col justify-between bg-[url('https://res.cloudinary.com/do6zpq1dx/image/upload/v1697571247/KanisaOnline/xbospt43muekpfgjfdae.png')] md:bg-none bg-cover bg-no-repeat w-full">
-        <div>
+
+    <!-- Right Side - Content -->
+    <div class="min-h-screen flex flex-col justify-between bg-[url('https://res.cloudinary.com/do6zpq1dx/image/upload/v1697571247/KanisaOnline/xbospt43muekpfgjfdae.png')] md:bg-none bg-cover bg-center bg-no-repeat w-full relative">
+        
+        <!-- Mobile Logo -->
+        <div class="md:hidden absolute top-4 left-4 z-20">
+            <img src="{{asset('assets/logo.png')}}" alt="" class="h-10">
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-grow">
             {{ $slot }}
         </div>
-        <div class="w-full h-[56px] px-5 lg:px-10 space-y-5 bg-black lg:bg-transparent bg-opacity-50">
-            <div>
-                <hr class="" />
-            </div>
-            <div>
-                <span class="text-white md:text-description text-sm">2024 © eshop Online</span>
-            </div>
-        </div>
+
+        <!-- Footer -->
+        <footer class="w-full py-4 px-4 sm:px-6 lg:px-10 bg-black bg-opacity-50 md:bg-transparent">
+            <hr class="border-gray-400 mb-3" />
+            <span class="text-white text-xs sm:text-sm md:text-description">
+                2024 © eshop Online
+            </span>
+        </footer>
     </div>
+    @livewireScripts
+
 </body>
 
 </html>

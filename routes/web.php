@@ -4,6 +4,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\Customer\LoginController;
 use App\Http\Controllers\Customer\ProfileController;
 use App\Http\Controllers\OrderController;
+// use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Subscriptions;
@@ -28,6 +29,12 @@ Route::get('register',function(){
 Route::get('/', function () {
     return redirect()->route('customer-welcome-page');
 })->name('home');
+
+
+
+// Route::get('/', function () {
+//     return 'Hello World';
+// });
 
 
 Route::middleware([
@@ -93,8 +100,8 @@ Route::get('successfully-registered',function(){
 
 
 
-Route::post('/process-selcom-payment', 'PaymentController@processSelcomPayment')->name('process-selcom-payment');
-Route::post('/check-payment-status', 'PaymentController@checkPaymentStatus')->name('check-payment-status');
+// Route::post('/process-selcom-payment', 'PaymentController@processSelcomPayment')->name('process-selcom-payment');
+// Route::post('/check-payment-status', 'PaymentController@checkPaymentStatus')->name('check-payment-status');
 
 
 // Route::get('')->name('vendor.dashboard');

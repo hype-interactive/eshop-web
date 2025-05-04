@@ -1,25 +1,33 @@
-<div class="py-4 my-14" style="background-color: #FEF8EA">
+<div class="py-8 my-14 bg-[#FEF8EA]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl font-inter font-bold mb-4">Shop by Category</h2>
 
-    <div class="container my-4 mx-auto w-screen">
-        <h2 class="text-2xl font-inter font-bold mb-2"> Shop by Category </h2>
         <div class="relative">
+            <!-- Left Scroll Button -->
             <button id="scrollLeft"
-                class="absolute left-0 top-1/2 transform -translate-y-1/2  text-gray-400 w-12 h-12 border-2 rounded-full z-10 -ml-8 shadow-md flex items-center justify-center">❮</button>
+                class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white text-gray-600 border w-10 h-10 rounded-full z-10 shadow-md flex items-center justify-center hover:bg-gray-100 transition">
+                ❮
+            </button>
 
-            {{-- <button id="scrollLeft" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-blue-500 text-white py-1 rounded-full z-10  -ml-6 shadow-md">❮</button> --}}
-
-            <div class="font-inter overflow-x-scroll no-scrollbar space-x-5 py-1 mx-5 flex sm:relative sm:overflow-x-auto sm:space-x-0 sm:py-0 sm:mx-0">
-
+            <!-- Scroll Container -->
+            <div id="scrollContainer"
+                class="flex overflow-x-auto scroll-smooth no-scrollbar gap-4 py-2 px-4 snap-x">
                 @foreach ($product_category as $category)
-
-                @include('components.category_card', ['id' => $category->id, 'name' => $category->name,'image'=> 'images/billboard.png'])
-
+                    <div class="flex-shrink-0 snap-start w-48 sm:w-52 md:w-56">
+                        @include('components.category_card', [
+                            'id' => $category->id,
+                            'name' => $category->name,
+                            'image' => 'images/billboard.png'
+                        ])
+                    </div>
                 @endforeach
-
             </div>
-            <button id="scrollRight"
-                class="absolute right-0 top-1/2 transform -translate-y-1/2  text-gray-400 border w-12 h-12 rounded-full z-10 -mr-8 shadow-md flex items-center justify-center">❯</button>
 
+            <!-- Right Scroll Button -->
+            <button id="scrollRight"
+                class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white text-gray-600 border w-10 h-10 rounded-full z-10 shadow-md flex items-center justify-center hover:bg-gray-100 transition">
+                ❯
+            </button>
         </div>
     </div>
 </div>
