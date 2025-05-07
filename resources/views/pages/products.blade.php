@@ -5,8 +5,18 @@
   
     <div class="max-w-7xl mx-auto px-4 py-8">
     <div class="flex flex-col lg:flex-row gap-6">
-        <!-- Sidebar (Categories + Price Filter) -->
-        <aside class="w-full lg:max-w-[250px] flex-shrink-0 space-y-6">
+        <!-- Filter Toggle Button (visible only on mobile) -->
+        <div class="lg:hidden mb-4">
+            <button id="filterToggle" class="w-full bg-white border rounded-md py-2 px-4 flex justify-between items-center">
+                <span class="font-semibold">Filters</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform transition-transform" id="filterIcon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </button>
+        </div>
+        
+        <!-- Sidebar (Categories + Price Filter) - Hidden by default on mobile -->
+        <aside id="filterSidebar" class="w-full lg:max-w-[250px] flex-shrink-0 space-y-6 hidden lg:block">
             <!-- Categories -->
             <div class="bg-white border rounded-md">
                 <h2 class="border-b font-semibold px-4 py-2">Categories</h2>
@@ -45,11 +55,6 @@
                         <option value="price">By Price</option>
                     </select>
                 </form>
-                <script>
-                    document.getElementById('sortSelect').addEventListener('change', function () {
-                        document.getElementById('sortForm').submit();
-                    });
-                </script>
             </div>
 
             <!-- Product Grid -->
@@ -71,6 +76,42 @@
         </main>
     </div>
 </div>
+
+<!-- JavaScript for Filter Toggle -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Sort Select Handler
+        document.getElementById('sortSelect').addEventListener('change', function () {
+            document.getElementById('sortForm').submit();
+        });
+        
+        // Filter Toggle Handler
+        const filterToggle = document.getElementById('filterToggle');
+        const filterSidebar = document.getElementById('filterSidebar');
+        const filterIcon = document.getElementById('filterIcon');
+        
+        filterToggle.addEventListener('click', function() {
+            // Toggle filter visibility
+            filterSidebar.classList.toggle('hidden');
+            
+            // Rotate icon when expanded/collapsed
+            if (filterSidebar.classList.contains('hidden')) {
+                filterIcon.classList.remove('rotate-180');
+            } else {
+                filterIcon.classList.add('rotate-180');
+            }
+        });
+        
+        // Hide filters on larger screens if window is resized
+        window.addEventListener('resize', function() {
+            if (window.innerWidth >= 1024) { // lg breakpoint
+                filterSidebar.classList.remove('hidden');
+            } else {
+                filterSidebar.classList.add('hidden');
+            }
+        });
+    });
+</script>
 
 
 
