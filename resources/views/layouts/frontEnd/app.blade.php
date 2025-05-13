@@ -21,6 +21,5 @@
     @yield('front-end-main')
     @include('shared.upper-footer')
     @include('shared.footer')
-    <script src="{{ mix('js/app.js') }}">   </script>
 </body>
 </html>
